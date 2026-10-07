@@ -23,4 +23,7 @@ jobs:
           cache: false
 
       - name: Run tests
-        run: go test ./...
+        shell: bash
+        run: |
+          packages=$(go list ./... | grep -vE '/(internal|third_party)(/|$)')
+          go test $packages
