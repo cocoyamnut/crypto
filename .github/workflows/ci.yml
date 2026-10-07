@@ -23,14 +23,4 @@ jobs:
           cache: false
 
       - name: Run tests
-        shell: bash
-        run: |
-          packages=$(find . -name '*.go' \
-            -not -path './internal/*' \
-            -not -path './hash/*' \
-            -not -path './x509/*' \
-            -not -path './third_party/*' \
-            -not -path '*/_asm/*' \
-            -not -path '*/testdata/*' \
-            -printf '%h\n' | sort -u)
-          go test $packages
+        run: go test ./md2 ./md4 ./blake2b ./blake2s ./blowfish ./cryptobyte/... ./ripemd160 ./twofish
