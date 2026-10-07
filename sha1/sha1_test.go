@@ -12,7 +12,7 @@ import (
 	"crypto/internal/cryptotest"
 	"encoding"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"runtime"
 	"sync/atomic"

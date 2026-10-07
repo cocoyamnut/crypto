@@ -9,7 +9,7 @@ package sha3
 import (
 	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140/sha3"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	_ "unsafe"
 )
 

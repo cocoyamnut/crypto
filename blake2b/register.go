@@ -6,7 +6,7 @@ package blake2b
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 func init() {

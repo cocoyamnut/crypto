@@ -21,7 +21,7 @@ package blake2b
 import (
 	"encoding/binary"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 const (

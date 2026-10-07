@@ -10,7 +10,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"crypto/internal/boring"
 	"crypto/internal/fips140/sha256"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 func init() {

@@ -15,7 +15,7 @@ package ripemd160
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 func init() {

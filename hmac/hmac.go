@@ -27,7 +27,7 @@ import (
 	"crypto/internal/fips140hash"
 	"crypto/internal/fips140only"
 	"crypto/subtle"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // New returns a new HMAC hash using the given [hash.Hash] type and key.

@@ -12,7 +12,7 @@ import (
 	"crypto/internal/fips140only"
 	"crypto/internal/rand"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 )
 

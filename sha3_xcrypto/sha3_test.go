@@ -16,7 +16,7 @@ import (
 	"encoding"
 	"encoding/hex"
 	"encoding/json"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"math/rand"
 	"os"

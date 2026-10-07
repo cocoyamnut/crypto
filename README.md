@@ -6,6 +6,8 @@ The package is organized like the Go MD4/MD5 implementations: `md2.go` contains 
 
 This repository also includes a local root `crypto` package. MD2 is registered as `crypto.MD2`, so `crypto.MD2.New()` can create an MD2 hash after importing this package.
 
+The standard `hash` package and its checksum subpackages are also included at the repository root, and the collected algorithms now use `github.com/cocoyamnut/crypto/hash` for their hash interfaces.
+
 All collected algorithm source directories are kept at the repository root. The source index is in [`ALGORITHMS.md`](ALGORITHMS.md).
 
 MD2 is obsolete and cryptographically broken. Use this package only for legacy compatibility, protocol interoperability, or historical data.

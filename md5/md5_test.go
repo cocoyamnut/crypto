@@ -10,7 +10,7 @@ import (
 	"crypto/rand"
 	"encoding"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"testing"
 	"unsafe"

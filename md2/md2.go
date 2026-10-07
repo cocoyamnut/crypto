@@ -5,7 +5,7 @@
 package md2
 
 import (
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 
 	"github.com/cocoyamnut/crypto"
 )

@@ -14,7 +14,7 @@ import (
 	"crypto/hkdf"
 	"crypto/hmac"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 )
 

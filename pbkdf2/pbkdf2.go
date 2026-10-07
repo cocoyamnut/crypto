@@ -15,7 +15,7 @@ import (
 	"crypto/internal/fips140hash"
 	"crypto/internal/fips140only"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // Key derives a key from the password, salt and iteration count, returning a

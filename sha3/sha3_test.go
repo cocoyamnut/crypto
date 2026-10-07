@@ -9,7 +9,7 @@ import (
 	"crypto/internal/cryptotest"
 	. "crypto/sha3"
 	"encoding/hex"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"math/rand"
 	"strings"

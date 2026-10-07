@@ -14,7 +14,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140only"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"internal/byteorder"
 )
 

@@ -9,7 +9,7 @@ import (
 	"encoding"
 	"encoding/hex"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"testing"
 )

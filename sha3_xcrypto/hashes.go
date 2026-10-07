@@ -11,7 +11,7 @@ package sha3
 
 import (
 	"crypto/sha3"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // New224 creates a new SHA3-224 hash.

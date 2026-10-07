@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"math/big"
 	"os"

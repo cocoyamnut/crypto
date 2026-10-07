@@ -15,7 +15,7 @@ import (
 	"crypto/sha512"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )
 

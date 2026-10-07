@@ -13,7 +13,7 @@ import (
 	"crypto/internal/boring"
 	"crypto/internal/fips140only"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"internal/byteorder"
 )
 

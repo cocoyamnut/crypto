@@ -6,7 +6,7 @@ package argon2
 
 import (
 	"encoding/binary"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 
 	"golang.org/x/crypto/blake2b"
 )

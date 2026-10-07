@@ -12,7 +12,7 @@ import (
 	"crypto/subtle"
 	"encoding/binary"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"unsafe"
 
 	"golang.org/x/sys/cpu"

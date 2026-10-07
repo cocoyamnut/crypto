@@ -15,7 +15,7 @@ import (
 	"crypto/internal/fips140hash"
 	"crypto/internal/fips140only"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // Extract generates a pseudorandom key for use with [Expand] from an input

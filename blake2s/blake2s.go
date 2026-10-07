@@ -22,7 +22,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"encoding/binary"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 const (

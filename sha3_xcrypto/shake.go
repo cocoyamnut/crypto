@@ -6,7 +6,7 @@ package sha3
 
 import (
 	"crypto/sha3"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 )
 

@@ -6,7 +6,7 @@
 package crypto
 
 import (
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"strconv"
 )

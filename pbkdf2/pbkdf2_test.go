@@ -11,7 +11,7 @@ import (
 	"crypto/pbkdf2"
 	"crypto/sha1"
 	"crypto/sha256"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )
 
