@@ -4,6 +4,8 @@
 
 The package is organized like the Go MD4/MD5 implementations: `md2.go` contains the public API and streaming state, while `md2block.go` contains the block transformation.
 
+For the complete map of official Go cryptography packages covered by this personal collection, see [`official/README.md`](official/README.md).
+
 MD2 is obsolete and cryptographically broken. Use this package only for legacy compatibility, protocol interoperability, or historical data.
 
 ## API
