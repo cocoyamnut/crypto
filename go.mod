@@ -1,3 +1,3 @@
-module github.com/cocoyamnut/md2
+module github.com/cocoyamnut/crypto
 
 go 1.21

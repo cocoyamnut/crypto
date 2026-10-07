@@ -1,13 +1,13 @@
 # md2
 
-`md2` is a small, standard-library-style Go implementation of the MD2 message-digest algorithm from [RFC 1319](https://www.rfc-editor.org/rfc/rfc1319).
+`github.com/cocoyamnut/crypto/md2` is a small, standard-library-style Go implementation of the MD2 message-digest algorithm from [RFC 1319](https://www.rfc-editor.org/rfc/rfc1319).
 
 MD2 is obsolete and cryptographically broken. Use this package only for legacy compatibility, protocol interoperability, or historical data.
 
 ## API
 
 ```go
-import "github.com/cocoyamnut/md2"
+import "github.com/cocoyamnut/crypto/md2"
 
 h := md2.New()
 _, _ = h.Write([]byte("hello"))
