@@ -15,7 +15,7 @@ package boring
 import "C"
 import (
 	"github.com/cocoyamnut/crypto/internal/crypto/boring/sig"
-	_ "crypto/internal/boring/syso"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/boring/syso"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/stringslite"
 	"math/bits"

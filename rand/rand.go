@@ -15,7 +15,7 @@ import (
 
 	// Ensure the go:linkname from testing/cryptotest to
 	// crypto/internal/rand.SetTestingReader works.
-	_ "crypto/internal/rand"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/rand"
 )
 
 // Reader is a global, shared instance of a cryptographically

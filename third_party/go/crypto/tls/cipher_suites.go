@@ -11,7 +11,7 @@ import (
 	"github.com/cocoyamnut/crypto/des"
 	"github.com/cocoyamnut/crypto/hmac"
 	"github.com/cocoyamnut/crypto/internal/crypto/boring"
-	fipsaes "crypto/internal/fips140/aes"
+	fipsaes "github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
 	"github.com/cocoyamnut/crypto/rc4"
 	"github.com/cocoyamnut/crypto/sha1"

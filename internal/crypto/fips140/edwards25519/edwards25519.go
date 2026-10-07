@@ -5,7 +5,7 @@
 package edwards25519
 
 import (
-	_ "crypto/internal/fips140/check"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/edwards25519/field"
 	"errors"
 )

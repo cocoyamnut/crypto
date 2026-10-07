@@ -10,7 +10,7 @@ import (
 	"crypto"
 	"github.com/cocoyamnut/crypto/ecdh"
 	"github.com/cocoyamnut/crypto/elliptic"
-	internalrand "crypto/internal/rand"
+	internalrand "github.com/cocoyamnut/crypto/internal/crypto/rand"
 	"github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/tls/internal/fips140tls"
 	"github.com/cocoyamnut/crypto/x509"

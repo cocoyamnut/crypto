@@ -7,7 +7,7 @@
 package checktest
 
 import (
-	_ "crypto/internal/fips140/check"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"runtime"
 	_ "unsafe" // go:linkname
 )

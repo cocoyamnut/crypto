@@ -4,4 +4,4 @@
 
 package fiat
 
-import _ "crypto/internal/fips140/check"
+import _ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"

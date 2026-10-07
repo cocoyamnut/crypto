@@ -95,14 +95,14 @@ func TestImports(t *testing.T) {
 	// Ensure that all packages except check and check's dependencies import check.
 	for pkg := range allPackages {
 		switch pkg {
-		case "crypto/internal/fips140/check":
-		case "crypto/internal/fips140":
-		case "crypto/internal/fips140/alias":
-		case "crypto/internal/fips140/subtle":
-		case "crypto/internal/fips140/hmac":
-		case "crypto/internal/fips140/sha3":
-		case "crypto/internal/fips140/sha256":
-		case "crypto/internal/fips140/sha512":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/check":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/alias":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/subtle":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha256":
+		case "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512":
 		default:
 			if !importCheck[pkg] {
 				t.Errorf("package %s does not import crypto/internal/fips140/check", pkg)

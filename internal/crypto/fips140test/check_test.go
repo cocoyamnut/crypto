@@ -7,7 +7,7 @@ package fipstest
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	. "crypto/internal/fips140/check"
+	. "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/check/checktest"
 	"fmt"
 	"github.com/cocoyamnut/crypto/internal/abi"

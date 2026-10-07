@@ -6,7 +6,7 @@
 package field
 
 import (
-	_ "crypto/internal/fips140/check"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/subtle"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140deps/byteorder"
 	"errors"

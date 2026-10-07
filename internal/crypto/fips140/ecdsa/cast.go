@@ -7,7 +7,7 @@ package ecdsa
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
-	_ "crypto/internal/fips140/check"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
 	"errors"
 	"sync"

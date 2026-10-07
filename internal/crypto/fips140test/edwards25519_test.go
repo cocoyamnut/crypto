@@ -6,7 +6,7 @@ package fipstest
 
 import (
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	. "crypto/internal/fips140/edwards25519"
+	. "github.com/cocoyamnut/crypto/internal/crypto/fips140/edwards25519"
 	"testing"
 )
 

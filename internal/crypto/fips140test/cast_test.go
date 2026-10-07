@@ -19,21 +19,21 @@ import (
 
 	// Import packages that define CASTs to test them.
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	_ "crypto/internal/fips140/aes"
-	_ "crypto/internal/fips140/aes/gcm"
-	_ "crypto/internal/fips140/drbg"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/drbg"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdh"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdsa"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ed25519"
-	_ "crypto/internal/fips140/hkdf"
-	_ "crypto/internal/fips140/hmac"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/hkdf"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/rsa"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha256"
-	_ "crypto/internal/fips140/sha3"
-	_ "crypto/internal/fips140/sha512"
-	_ "crypto/internal/fips140/tls12"
-	_ "crypto/internal/fips140/tls13"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/tls12"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/tls13"
 )
 
 var allCASTs = []string{

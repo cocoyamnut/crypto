@@ -11,7 +11,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/boring"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
-	fipsaes "crypto/internal/fips140/aes"
+	fipsaes "github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
 	"github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"

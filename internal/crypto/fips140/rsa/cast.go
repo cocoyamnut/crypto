@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/bigmod"
-	_ "crypto/internal/fips140/check"
+	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
 	"errors"
 	"sync"
 )

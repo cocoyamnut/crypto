@@ -59,7 +59,7 @@ import (
 	"strings"
 	"testing"
 
-	entropy "crypto/internal/entropy/v1.0.0"
+	entropy "github.com/cocoyamnut/crypto/internal/crypto/entropy/v1.0.0"
 )
 
 var noPAAPAI = os.Getenv("GONOPAAPAI") == "1"

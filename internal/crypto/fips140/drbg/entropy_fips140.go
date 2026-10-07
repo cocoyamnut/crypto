@@ -13,7 +13,7 @@
 
 package drbg
 
-import entropy "crypto/internal/entropy/v1.0.0"
+import entropy "github.com/cocoyamnut/crypto/internal/crypto/entropy/v1.0.0"
 
 // memory is a scratch buffer that is accessed between samples by the entropy
 // source to expose it to memory access timings.

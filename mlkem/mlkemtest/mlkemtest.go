@@ -6,7 +6,7 @@
 package mlkemtest
 
 import (
-	fips140mlkem "crypto/internal/fips140/mlkem"
+	fips140mlkem "github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"github.com/cocoyamnut/crypto/mlkem"
 	"errors"

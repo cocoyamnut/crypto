@@ -11,7 +11,7 @@ import (
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/ed25519"
 	"github.com/cocoyamnut/crypto/elliptic"
-	icryptotest "crypto/internal/cryptotest"
+	icryptotest "github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"github.com/cocoyamnut/crypto/mldsa"
 	"github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/rsa"

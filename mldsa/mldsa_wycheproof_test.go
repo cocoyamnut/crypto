@@ -10,7 +10,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
-	internalmldsa "crypto/internal/fips140/mldsa"
+	internalmldsa "github.com/cocoyamnut/crypto/internal/crypto/fips140/mldsa"
 	"github.com/cocoyamnut/crypto/mldsa"
 	"slices"
 	"testing"

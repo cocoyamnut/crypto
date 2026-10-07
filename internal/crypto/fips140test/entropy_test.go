@@ -9,7 +9,7 @@ package fipstest
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	entropy "crypto/internal/entropy/v1.0.0"
+	entropy "github.com/cocoyamnut/crypto/internal/crypto/entropy/v1.0.0"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/drbg"
 	"github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/sha256"
