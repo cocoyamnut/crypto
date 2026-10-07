@@ -7,7 +7,7 @@
 package boring
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/boring/sig"
 	"hash"
 )

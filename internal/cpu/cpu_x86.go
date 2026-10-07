@@ -124,6 +124,7 @@ func doinit() {
 
 	_, _, ecx1, _ := cpuid(1, 0)
 
+	X86.HasSSE2 = true
 	X86.HasSSE3 = isSet(ecx1, cpuid_SSE3)
 	X86.HasPCLMULQDQ = isSet(ecx1, cpuid_PCLMULQDQ)
 	X86.HasSSSE3 = isSet(ecx1, cpuid_SSSE3)

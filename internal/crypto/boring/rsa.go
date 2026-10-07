@@ -9,7 +9,7 @@ package boring
 // #include "goboringcrypto.h"
 import "C"
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"hash"

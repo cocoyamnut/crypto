@@ -8,7 +8,7 @@ import (
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/elliptic"
 	"github.com/cocoyamnut/crypto/rand"
-	"github.com/cocoyamnut/crypto/tls"
+	"crypto/tls"
 	"github.com/cocoyamnut/crypto/x509"
 	"github.com/cocoyamnut/crypto/x509/pkix"
 	"github.com/cocoyamnut/crypto/internal/testenv"
