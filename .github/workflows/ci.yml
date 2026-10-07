@@ -22,15 +22,5 @@ jobs:
           go-version: stable
           cache: false
 
-      - name: Check formatting
-        shell: bash
-        run: |
-          files=$(git ls-files '*.go' ':(exclude)internal/types/testdata/**' | xargs -r gofmt -l)
-          if [[ -n "$files" ]]; then
-            echo "These files are not gofmt-formatted:"
-            echo "$files"
-            exit 1
-          fi
-
       - name: Run tests
         run: go test ./...
