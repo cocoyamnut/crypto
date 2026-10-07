@@ -60,12 +60,12 @@ func TestLinker(t *testing.T) {
 	var consistent bool
 	nm := run(testenv.GoToolPath(t), "tool", "nm", "hello.exe")
 	for _, match := range regexp.MustCompile(`(?m)T (crypto/.*)$`).FindAllStringSubmatch(nm, -1) {
-		symbol := snapshot.ReplaceAllString(match[1], "crypto/internal/fips140/")
-		if strings.HasPrefix(symbol, "crypto/internal/fips140/drbg.") {
+		symbol := snapshot.ReplaceAllString(match[1], "github.com/cocoyamnut/crypto/internal/crypto/fips140/")
+		if strings.HasPrefix(symbol, "github.com/cocoyamnut/crypto/internal/crypto/fips140/drbg.") {
 			consistent = true
 		}
-		if strings.HasPrefix(symbol, "crypto/internal/fips140/aes/gcm.") ||
-			strings.HasPrefix(symbol, "crypto/cipher.") {
+		if strings.HasPrefix(symbol, "github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm.") ||
+			strings.HasPrefix(symbol, "github.com/cocoyamnut/crypto/cipher.") {
 			t.Errorf("unexpected symbol in program using only crypto/rand: %s", symbol)
 		}
 	}

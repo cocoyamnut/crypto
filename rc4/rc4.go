@@ -25,14 +25,14 @@ type Cipher struct {
 type KeySizeError int
 
 func (k KeySizeError) Error() string {
-	return "crypto/rc4: invalid key size " + strconv.Itoa(int(k))
+	return "github.com/cocoyamnut/crypto/rc4: invalid key size " + strconv.Itoa(int(k))
 }
 
 // NewCipher creates and returns a new [Cipher]. The key argument should be the
 // RC4 key, at least 1 byte and at most 256 bytes.
 func NewCipher(key []byte) (*Cipher, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/rc4: use of RC4 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rc4: use of RC4 is not allowed in FIPS 140-only mode")
 	}
 	k := len(key)
 	if k < 1 || k > 256 {
@@ -66,7 +66,7 @@ func (c *Cipher) XORKeyStream(dst, src []byte) {
 		return
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/rc4: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/rc4: invalid buffer overlap")
 	}
 	i, j := c.i, c.j
 	_ = dst[len(src)-1]

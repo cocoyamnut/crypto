@@ -6,7 +6,7 @@ package strconv_test
 
 import (
 	"bytes"
-	. "internal/strconv"
+	. "github.com/cocoyamnut/crypto/internal/strconv"
 	"testing"
 )
 

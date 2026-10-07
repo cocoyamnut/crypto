@@ -80,10 +80,10 @@ func (d *digest) AppendBinary(b []byte) ([]byte, error) {
 
 func (d *digest) UnmarshalBinary(b []byte) error {
 	if len(b) < len(magic) || string(b[:len(magic)]) != magic {
-		return errors.New("crypto/md5: invalid hash state identifier")
+		return errors.New("github.com/cocoyamnut/crypto/md5: invalid hash state identifier")
 	}
 	if len(b) != marshaledSize {
-		return errors.New("crypto/md5: invalid hash state size")
+		return errors.New("github.com/cocoyamnut/crypto/md5: invalid hash state size")
 	}
 	b = b[len(magic):]
 	b, d.s[0] = consumeUint32(b)
@@ -125,7 +125,7 @@ func (d *digest) BlockSize() int { return BlockSize }
 
 func (d *digest) Write(p []byte) (nn int, err error) {
 	if fips140only.Enforced() {
-		return 0, errors.New("crypto/md5: use of MD5 is not allowed in FIPS 140-only mode")
+		return 0, errors.New("github.com/cocoyamnut/crypto/md5: use of MD5 is not allowed in FIPS 140-only mode")
 	}
 	// Note that we currently call block or blockGeneric
 	// directly (guarded using haveAsm) because this allows
@@ -174,7 +174,7 @@ func (d *digest) Sum(in []byte) []byte {
 
 func (d *digest) checkSum() [Size]byte {
 	if fips140only.Enforced() {
-		panic("crypto/md5: use of MD5 is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/md5: use of MD5 is not allowed in FIPS 140-only mode")
 	}
 
 	// Append 0x80 to the end of the message and then append zeros

@@ -30,7 +30,7 @@ type ofb struct {
 // If an unauthenticated [Stream] mode is required, use [NewCTR] instead.
 func NewOFB(b Block, iv []byte) Stream {
 	if fips140only.Enforced() {
-		panic("crypto/cipher: use of OFB is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/cipher: use of OFB is not allowed in FIPS 140-only mode")
 	}
 
 	blockSize := b.BlockSize()
@@ -71,10 +71,10 @@ func (x *ofb) refill() {
 
 func (x *ofb) XORKeyStream(dst, src []byte) {
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	for len(src) > 0 {
 		if x.outUsed >= len(x.out)-x.b.BlockSize() {

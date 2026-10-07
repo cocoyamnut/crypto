@@ -22,7 +22,7 @@ func Encapsulate768(ek *mlkem.EncapsulationKey768, random []byte) (sharedKey, ci
 		return nil, nil, errors.New("mlkemtest: Encapsulate768: random must be 32 bytes")
 	}
 	if fips140only.Enforced() {
-		return nil, nil, errors.New("crypto/mlkem/mlkemtest: use of derandomized encapsulation is not allowed in FIPS 140-only mode")
+		return nil, nil, errors.New("github.com/cocoyamnut/crypto/mlkem/mlkemtest: use of derandomized encapsulation is not allowed in FIPS 140-only mode")
 	}
 	k, err := fips140mlkem.NewEncapsulationKey768(ek.Bytes())
 	if err != nil {
@@ -42,7 +42,7 @@ func Encapsulate1024(ek *mlkem.EncapsulationKey1024, random []byte) (sharedKey, 
 		return nil, nil, errors.New("mlkemtest: Encapsulate1024: random must be 32 bytes")
 	}
 	if fips140only.Enforced() {
-		return nil, nil, errors.New("crypto/mlkem/mlkemtest: use of derandomized encapsulation is not allowed in FIPS 140-only mode")
+		return nil, nil, errors.New("github.com/cocoyamnut/crypto/mlkem/mlkemtest: use of derandomized encapsulation is not allowed in FIPS 140-only mode")
 	}
 	k, err := fips140mlkem.NewEncapsulationKey1024(ek.Bytes())
 	if err != nil {

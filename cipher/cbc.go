@@ -55,7 +55,7 @@ func NewCBCEncrypter(b Block, iv []byte) BlockMode {
 		return aes.NewCBCEncrypter(b, [16]byte(iv))
 	}
 	if fips140only.Enforced() {
-		panic("crypto/cipher: use of CBC with non-AES ciphers is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/cipher: use of CBC with non-AES ciphers is not allowed in FIPS 140-only mode")
 	}
 	if cbc, ok := b.(cbcEncAble); ok {
 		return cbc.NewCBCEncrypter(iv)
@@ -78,16 +78,16 @@ func (x *cbcEncrypter) BlockSize() int { return x.blockSize }
 
 func (x *cbcEncrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%x.blockSize != 0 {
-		panic("crypto/cipher: input not full blocks")
+		panic("github.com/cocoyamnut/crypto/cipher: input not full blocks")
 	}
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	if _, ok := x.b.(*aes.Block); ok {
-		panic("crypto/cipher: internal error: generic CBC used with AES")
+		panic("github.com/cocoyamnut/crypto/cipher: internal error: generic CBC used with AES")
 	}
 
 	iv := x.iv
@@ -134,7 +134,7 @@ func NewCBCDecrypter(b Block, iv []byte) BlockMode {
 		return aes.NewCBCDecrypter(b, [16]byte(iv))
 	}
 	if fips140only.Enforced() {
-		panic("crypto/cipher: use of CBC with non-AES ciphers is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/cipher: use of CBC with non-AES ciphers is not allowed in FIPS 140-only mode")
 	}
 	if cbc, ok := b.(cbcDecAble); ok {
 		return cbc.NewCBCDecrypter(iv)
@@ -157,16 +157,16 @@ func (x *cbcDecrypter) BlockSize() int { return x.blockSize }
 
 func (x *cbcDecrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%x.blockSize != 0 {
-		panic("crypto/cipher: input not full blocks")
+		panic("github.com/cocoyamnut/crypto/cipher: input not full blocks")
 	}
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	if _, ok := x.b.(*aes.Block); ok {
-		panic("crypto/cipher: internal error: generic CBC used with AES")
+		panic("github.com/cocoyamnut/crypto/cipher: internal error: generic CBC used with AES")
 	}
 	if len(src) == 0 {
 		return

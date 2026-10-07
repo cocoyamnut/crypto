@@ -109,7 +109,7 @@ func (c *Counter) Generate(out []byte, additionalInput *[SeedSize]byte) (reseedR
 	fips140.RecordApproved()
 
 	if len(out) > maxRequestSize {
-		panic("crypto/drbg: internal error: request size exceeds maximum")
+		panic("github.com/cocoyamnut/crypto/drbg: internal error: request size exceeds maximum")
 	}
 
 	// Step 1.

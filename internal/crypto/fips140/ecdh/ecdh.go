@@ -176,7 +176,7 @@ func GenerateKey[P Point[P]](c *Curve[P], rand io.Reader) (*PrivateKey, error) {
 				return err
 			}
 			if !bytes.Equal(p1.Bytes(), privateKey.pub.q) {
-				return errors.New("crypto/ecdh: public key does not match private key")
+				return errors.New("github.com/cocoyamnut/crypto/ecdh: public key does not match private key")
 			}
 			return nil
 		})
@@ -190,14 +190,14 @@ func NewPrivateKey[P Point[P]](c *Curve[P], key []byte) (*PrivateKey, error) {
 	// returns d = c + 1. Note that it follows that 0 < d < n. Equivalently,
 	// we check that 0 < d < n, and return d.
 	if len(key) != len(c.N) || isZero(key) || !isLess(key, c.N) {
-		return nil, errors.New("crypto/ecdh: invalid private key")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid private key")
 	}
 
 	p, err := c.newPoint().ScalarBaseMult(key)
 	if err != nil {
 		// This is unreachable because the only error condition of
 		// ScalarBaseMult is if the input is not the right size.
-		panic("crypto/ecdh: internal error: nistec ScalarBaseMult failed for a fixed-size input")
+		panic("github.com/cocoyamnut/crypto/ecdh: internal error: nistec ScalarBaseMult failed for a fixed-size input")
 	}
 
 	publicKey := p.Bytes()
@@ -205,7 +205,7 @@ func NewPrivateKey[P Point[P]](c *Curve[P], key []byte) (*PrivateKey, error) {
 		// The encoding of the identity is a single 0x00 byte. This is
 		// unreachable because the only scalar that generates the identity is
 		// zero, which is rejected above.
-		panic("crypto/ecdh: internal error: public key is the identity element")
+		panic("github.com/cocoyamnut/crypto/ecdh: internal error: public key is the identity element")
 	}
 
 	k := &PrivateKey{d: bytes.Clone(key), pub: PublicKey{curve: c.curve, q: publicKey}}
@@ -215,7 +215,7 @@ func NewPrivateKey[P Point[P]](c *Curve[P], key []byte) (*PrivateKey, error) {
 func NewPublicKey[P Point[P]](c *Curve[P], key []byte) (*PublicKey, error) {
 	// Reject the point at infinity and compressed encodings.
 	if len(key) == 0 || key[0] != 4 {
-		return nil, errors.New("crypto/ecdh: invalid public key")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid public key")
 	}
 
 	// SetBytes checks that x and y are in the interval [0, p - 1], and that
@@ -237,10 +237,10 @@ func ECDH[P Point[P]](c *Curve[P], k *PrivateKey, peer *PublicKey) ([]byte, erro
 
 func ecdh[P Point[P]](c *Curve[P], k *PrivateKey, peer *PublicKey) ([]byte, error) {
 	if c.curve != k.pub.curve {
-		return nil, errors.New("crypto/ecdh: mismatched curves")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: mismatched curves")
 	}
 	if k.pub.curve != peer.curve {
-		return nil, errors.New("crypto/ecdh: mismatched curves")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: mismatched curves")
 	}
 
 	// This applies the Shared Secret Computation of the Ephemeral Unified Model
@@ -248,7 +248,7 @@ func ecdh[P Point[P]](c *Curve[P], k *PrivateKey, peer *PublicKey) ([]byte, erro
 
 	// Per Section 5.6.2.3.4, Step 1, reject the identity element (0x00).
 	if len(k.pub.q) == 1 {
-		return nil, errors.New("crypto/ecdh: public key is the identity element")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: public key is the identity element")
 	}
 
 	// SetBytes checks that (x, y) are reduced modulo p, and that they are on
@@ -281,14 +281,14 @@ func isZero(x []byte) bool {
 // same length and shorter than 72 bytes.
 func isLess(a, b []byte) bool {
 	if len(a) != len(b) {
-		panic("crypto/ecdh: internal error: mismatched isLess inputs")
+		panic("github.com/cocoyamnut/crypto/ecdh: internal error: mismatched isLess inputs")
 	}
 
 	// Copy the values into a fixed-size preallocated little-endian buffer.
 	// 72 bytes is enough for every scalar in this package, and having a fixed
 	// size lets us avoid heap allocations.
 	if len(a) > 72 {
-		panic("crypto/ecdh: internal error: isLess input too large")
+		panic("github.com/cocoyamnut/crypto/ecdh: internal error: isLess input too large")
 	}
 	bufA, bufB := make([]byte, 72), make([]byte, 72)
 	for i := range a {

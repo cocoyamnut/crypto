@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"github.com/cocoyamnut/crypto/rand"
-	. "crypto/subtle"
+	. "github.com/cocoyamnut/crypto/subtle"
 	"fmt"
 	"testing"
 )

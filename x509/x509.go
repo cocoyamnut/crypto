@@ -49,12 +49,12 @@ import (
 
 	// Explicitly import these for their crypto.RegisterHash init side-effects.
 	// Keep these as blank imports, even if they're imported above.
-	_ "crypto/sha1"
-	_ "crypto/sha256"
-	_ "crypto/sha512"
+	_ "github.com/cocoyamnut/crypto/sha1"
+	_ "github.com/cocoyamnut/crypto/sha256"
+	_ "github.com/cocoyamnut/crypto/sha512"
 
 	"github.com/cocoyamnut/crypto/cryptobyte"
-	cryptobyte_asn1 "golang.org/x/crypto/cryptobyte/asn1"
+	cryptobyte_asn1 "github.com/cocoyamnut/crypto/cryptobyte/asn1"
 )
 
 // pkixPublicKey reflects a PKIX public key structure. See SubjectPublicKeyInfo

@@ -21,7 +21,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140cache"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"github.com/cocoyamnut/crypto/internal/crypto/rand"
-	cryptorand "crypto/rand"
+	cryptorand "github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"github.com/cocoyamnut/crypto/internal/godebug"
@@ -113,7 +113,7 @@ func (priv PrivateKey) Sign(rand io.Reader, message []byte, opts crypto.SignerOp
 		return ed25519.SignPH(k, message, context)
 	case hash == crypto.Hash(0) && context != "": // Ed25519ctx
 		if fips140only.Enforced() {
-			return nil, errors.New("crypto/ed25519: use of Ed25519ctx is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/ed25519: use of Ed25519ctx is not allowed in FIPS 140-only mode")
 		}
 		return ed25519.SignCtx(k, message, context)
 	case hash == crypto.Hash(0): // Ed25519
@@ -161,7 +161,7 @@ func GenerateKey(random io.Reader) (PublicKey, PrivateKey, error) {
 	}
 
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(random) {
-		return nil, nil, errors.New("crypto/ed25519: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, nil, errors.New("github.com/cocoyamnut/crypto/ed25519: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 
 	if rand.IsDefaultReader(random) {
@@ -259,7 +259,7 @@ func VerifyWithOptions(publicKey PublicKey, message, sig []byte, opts *Options) 
 		return ed25519.VerifyPH(k, message, sig, opts.Context)
 	case opts.Hash == crypto.Hash(0) && opts.Context != "": // Ed25519ctx
 		if fips140only.Enforced() {
-			return errors.New("crypto/ed25519: use of Ed25519ctx is not allowed in FIPS 140-only mode")
+			return errors.New("github.com/cocoyamnut/crypto/ed25519: use of Ed25519ctx is not allowed in FIPS 140-only mode")
 		}
 		return ed25519.VerifyCtx(k, message, sig, opts.Context)
 	case opts.Hash == crypto.Hash(0): // Ed25519

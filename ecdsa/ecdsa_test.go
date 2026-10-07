@@ -9,7 +9,7 @@ import (
 	"bytes"
 	"compress/bzip2"
 	"github.com/cocoyamnut/crypto"
-	. "crypto/ecdsa"
+	. "github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/elliptic"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdsa"

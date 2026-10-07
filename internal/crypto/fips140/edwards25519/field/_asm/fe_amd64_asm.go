@@ -16,7 +16,7 @@ import (
 //go:generate go run . -out ../fe_amd64.s -stubs ../fe_amd64.go -pkg field
 
 func main() {
-	Package("crypto/internal/fips140/edwards25519/field")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/edwards25519/field")
 	ConstraintExpr("!purego")
 	feMul()
 	Generate()

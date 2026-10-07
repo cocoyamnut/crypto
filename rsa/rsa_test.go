@@ -13,7 +13,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdsa"
 	"github.com/cocoyamnut/crypto/rand"
-	. "crypto/rsa"
+	. "github.com/cocoyamnut/crypto/rsa"
 	"github.com/cocoyamnut/crypto/sha1"
 	"github.com/cocoyamnut/crypto/sha256"
 	"github.com/cocoyamnut/crypto/sha512"
@@ -358,7 +358,7 @@ func testEverything(t *testing.T, priv *PrivateKey) {
 		}
 	}
 
-	const hashMsg = "crypto/rsa: input must be hashed message"
+	const hashMsg = "github.com/cocoyamnut/crypto/rsa: input must be hashed message"
 	sig, err := SignPKCS1v15(nil, priv, crypto.SHA256, msg)
 	if err == nil || err.Error() != hashMsg {
 		t.Errorf("SignPKCS1v15 with bad hash: err = %q, want %q", err, hashMsg)

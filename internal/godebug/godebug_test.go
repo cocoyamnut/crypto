@@ -6,7 +6,7 @@ package godebug_test
 
 import (
 	"fmt"
-	. "internal/godebug"
+	. "github.com/cocoyamnut/crypto/internal/godebug"
 	"github.com/cocoyamnut/crypto/internal/race"
 	"github.com/cocoyamnut/crypto/internal/testenv"
 	"os"

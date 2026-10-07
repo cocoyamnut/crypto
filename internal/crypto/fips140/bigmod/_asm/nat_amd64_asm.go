@@ -15,7 +15,7 @@ import (
 //go:generate go run . -out ../nat_amd64.s -pkg bigmod
 
 func main() {
-	Package("crypto/internal/fips140/bigmod")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/bigmod")
 	ConstraintExpr("!purego")
 
 	addMulVVW(1024)

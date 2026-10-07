@@ -4,7 +4,7 @@
 
 package strconv_test
 
-import . "internal/strconv"
+import . "github.com/cocoyamnut/crypto/internal/strconv"
 
 var (
 	log2Pow10        = Log2Pow10

@@ -7,7 +7,7 @@
 package poll_test
 
 import (
-	. "internal/poll"
+	. "github.com/cocoyamnut/crypto/internal/poll"
 	"io"
 	"testing"
 )

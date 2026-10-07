@@ -73,10 +73,10 @@ func (d *digest) AppendBinary(b []byte) ([]byte, error) {
 
 func (d *digest) UnmarshalBinary(b []byte) error {
 	if len(b) < len(magic) || string(b[:len(magic)]) != magic {
-		return errors.New("crypto/sha1: invalid hash state identifier")
+		return errors.New("github.com/cocoyamnut/crypto/sha1: invalid hash state identifier")
 	}
 	if len(b) != marshaledSize {
-		return errors.New("crypto/sha1: invalid hash state size")
+		return errors.New("github.com/cocoyamnut/crypto/sha1: invalid hash state size")
 	}
 	b = b[len(magic):]
 	b, d.h[0] = consumeUint32(b)
@@ -132,7 +132,7 @@ func (d *digest) BlockSize() int { return BlockSize }
 
 func (d *digest) Write(p []byte) (nn int, err error) {
 	if fips140only.Enforced() {
-		return 0, errors.New("crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
+		return 0, errors.New("github.com/cocoyamnut/crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
 	}
 	boring.Unreachable()
 	nn = len(p)
@@ -172,7 +172,7 @@ func (d *digest) Sum(in []byte) []byte {
 
 func (d *digest) checkSum() [Size]byte {
 	if fips140only.Enforced() {
-		panic("crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
 	}
 
 	len := d.len
@@ -216,7 +216,7 @@ func (d *digest) ConstantTimeSum(in []byte) []byte {
 
 func (d *digest) constSum() [Size]byte {
 	if fips140only.Enforced() {
-		panic("crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
 	}
 
 	var length [8]byte
@@ -285,7 +285,7 @@ func Sum(data []byte) [Size]byte {
 		return boring.SHA1(data)
 	}
 	if fips140only.Enforced() {
-		panic("crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/sha1: use of SHA-1 is not allowed in FIPS 140-only mode")
 	}
 	var d digest
 	d.Reset()

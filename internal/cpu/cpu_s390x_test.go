@@ -6,7 +6,7 @@ package cpu_test
 
 import (
 	"errors"
-	. "internal/cpu"
+	. "github.com/cocoyamnut/crypto/internal/cpu"
 	"os"
 	"regexp"
 	"testing"

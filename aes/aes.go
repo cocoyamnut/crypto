@@ -26,7 +26,7 @@ const BlockSize = 16
 type KeySizeError int
 
 func (k KeySizeError) Error() string {
-	return "crypto/aes: invalid key size " + strconv.Itoa(int(k))
+	return "github.com/cocoyamnut/crypto/aes: invalid key size " + strconv.Itoa(int(k))
 }
 
 // NewCipher creates and returns a new [cipher.Block].

@@ -5,7 +5,7 @@
 package sync_test
 
 import (
-	isync "internal/sync"
+	isync "github.com/cocoyamnut/crypto/internal/sync"
 	"testing"
 )
 

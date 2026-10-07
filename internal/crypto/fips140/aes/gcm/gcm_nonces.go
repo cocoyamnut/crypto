@@ -24,19 +24,19 @@ import (
 // Note that this is NOT a [cipher.AEAD].Seal method.
 func SealWithRandomNonce(g *GCM, nonce, out, plaintext, additionalData []byte) {
 	if uint64(len(plaintext)) > uint64((1<<32)-2)*gcmBlockSize {
-		panic("crypto/cipher: message too large for GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: message too large for GCM")
 	}
 	if len(nonce) != gcmStandardNonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCMWithRandomNonce")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCMWithRandomNonce")
 	}
 	if len(out) != len(plaintext)+gcmTagSize {
-		panic("crypto/cipher: incorrect output length given to GCMWithRandomNonce")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect output length given to GCMWithRandomNonce")
 	}
 	if alias.InexactOverlap(out, plaintext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, additionalData) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 	fips140.RecordApproved()
 	drbg.Read(nonce)
@@ -104,7 +104,7 @@ func (g *GCMWithCounterNonce) Overhead() int { return gcmTagSize }
 // It is not safe for concurrent use.
 func (g *GCMWithCounterNonce) Seal(dst, nonce, plaintext, data []byte) []byte {
 	if len(nonce) != gcmStandardNonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 
 	if fips140.Enabled {
@@ -114,7 +114,7 @@ func (g *GCMWithCounterNonce) Seal(dst, nonce, plaintext, data []byte) []byte {
 			g.prefix = byteorder.BEUint32(nonce[:4])
 		}
 		if g.prefix != byteorder.BEUint32(nonce[:4]) {
-			panic("crypto/cipher: GCM nonce prefix changed")
+			panic("github.com/cocoyamnut/crypto/cipher: GCM nonce prefix changed")
 		}
 
 		counter := byteorder.BEUint64(nonce[len(nonce)-8:])
@@ -127,10 +127,10 @@ func (g *GCMWithCounterNonce) Seal(dst, nonce, plaintext, data []byte) []byte {
 
 		// Ensure the counter is strictly increasing.
 		if counter == math.MaxUint64 {
-			panic("crypto/cipher: counter exhausted")
+			panic("github.com/cocoyamnut/crypto/cipher: counter exhausted")
 		}
 		if counter < g.next {
-			panic("crypto/cipher: counter decreased or remained the same")
+			panic("github.com/cocoyamnut/crypto/cipher: counter decreased or remained the same")
 		}
 		g.next = counter + 1
 	}
@@ -228,10 +228,10 @@ type GCMWithXORCounterNonce struct {
 // increasing.
 func (g *GCMWithXORCounterNonce) SetNoncePrefixAndMask(nonce []byte) error {
 	if len(nonce) != gcmStandardNonceSize {
-		return errors.New("crypto/cipher: incorrect nonce length given to SetNoncePrefixAndMask")
+		return errors.New("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to SetNoncePrefixAndMask")
 	}
 	if g.ready {
-		return errors.New("crypto/cipher: SetNoncePrefixAndMask called twice or after first Seal")
+		return errors.New("github.com/cocoyamnut/crypto/cipher: SetNoncePrefixAndMask called twice or after first Seal")
 	}
 	g.prefix = byteorder.BEUint32(nonce[:4])
 	g.mask = byteorder.BEUint64(nonce[4:])
@@ -249,7 +249,7 @@ func (g *GCMWithXORCounterNonce) Overhead() int { return gcmTagSize }
 // It is not safe for concurrent use.
 func (g *GCMWithXORCounterNonce) Seal(dst, nonce, plaintext, data []byte) []byte {
 	if len(nonce) != gcmStandardNonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 
 	if fips140.Enabled {
@@ -263,16 +263,16 @@ func (g *GCMWithXORCounterNonce) Seal(dst, nonce, plaintext, data []byte) []byte
 			g.prefix = byteorder.BEUint32(nonce[:4])
 		}
 		if g.prefix != byteorder.BEUint32(nonce[:4]) {
-			panic("crypto/cipher: GCM nonce prefix changed")
+			panic("github.com/cocoyamnut/crypto/cipher: GCM nonce prefix changed")
 		}
 		counter ^= g.mask
 
 		// Ensure the counter is strictly increasing.
 		if counter == math.MaxUint64 {
-			panic("crypto/cipher: counter exhausted")
+			panic("github.com/cocoyamnut/crypto/cipher: counter exhausted")
 		}
 		if counter < g.next {
-			panic("crypto/cipher: counter decreased or remained the same")
+			panic("github.com/cocoyamnut/crypto/cipher: counter decreased or remained the same")
 		}
 		g.next = counter + 1
 	}

@@ -67,21 +67,21 @@ func (g *GCM) Seal(dst, nonce, plaintext, data []byte) []byte {
 
 func (g *GCM) sealAfterIndicator(dst, nonce, plaintext, data []byte) []byte {
 	if len(nonce) != g.nonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 	if g.nonceSize == 0 {
-		panic("crypto/cipher: incorrect GCM nonce size")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect GCM nonce size")
 	}
 	if uint64(len(plaintext)) > uint64((1<<32)-2)*gcmBlockSize {
-		panic("crypto/cipher: message too large for GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: message too large for GCM")
 	}
 
 	ret, out := sliceForAppend(dst, len(plaintext)+g.tagSize)
 	if alias.InexactOverlap(out, plaintext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, data) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 
 	seal(out, g, nonce, plaintext, data)
@@ -92,12 +92,12 @@ var errOpen = errors.New("cipher: message authentication failed")
 
 func (g *GCM) Open(dst, nonce, ciphertext, data []byte) ([]byte, error) {
 	if len(nonce) != g.nonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 	// Sanity check to prevent the authentication from always succeeding if an
 	// implementation leaves tagSize uninitialized, for example.
 	if g.tagSize < gcmMinimumTagSize {
-		panic("crypto/cipher: incorrect GCM tag size")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect GCM tag size")
 	}
 
 	if len(ciphertext) < g.tagSize {
@@ -109,10 +109,10 @@ func (g *GCM) Open(dst, nonce, ciphertext, data []byte) ([]byte, error) {
 
 	ret, out := sliceForAppend(dst, len(ciphertext)-g.tagSize)
 	if alias.InexactOverlap(out, ciphertext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, data) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 
 	fips140.RecordApproved()

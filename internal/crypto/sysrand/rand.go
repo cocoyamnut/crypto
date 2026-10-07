@@ -17,7 +17,7 @@ import (
 var firstUse atomic.Bool
 
 func warnBlocked() {
-	println("crypto/rand: blocked for 60 seconds waiting to read random data from the kernel")
+	println("github.com/cocoyamnut/crypto/rand: blocked for 60 seconds waiting to read random data from the kernel")
 }
 
 // fatal is [runtime.fatal], pushed via linkname.
@@ -48,7 +48,7 @@ func Read(b []byte) {
 		} else {
 			errStr = "testing simulated failure"
 		}
-		fatal("crypto/rand: failed to read random data (see https://go.dev/issue/66821): " + errStr)
+		fatal("github.com/cocoyamnut/crypto/rand: failed to read random data (see https://go.dev/issue/66821): " + errStr)
 		panic("unreachable") // To be sure.
 	}
 }

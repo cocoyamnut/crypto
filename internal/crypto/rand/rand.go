@@ -22,7 +22,7 @@ type reader struct{ defaultReader }
 func (r reader) Read(b []byte) (n int, err error) {
 	if boring.Enabled {
 		if _, err := boring.RandReader.Read(b); err != nil {
-			panic("crypto/rand: boring RandReader failed: " + err.Error())
+			panic("github.com/cocoyamnut/crypto/rand: boring RandReader failed: " + err.Error())
 		}
 		return len(b), nil
 	}

@@ -5,7 +5,7 @@
 package cipher_test
 
 import (
-	. "crypto/cipher"
+	. "github.com/cocoyamnut/crypto/cipher"
 	"reflect"
 	"testing"
 )

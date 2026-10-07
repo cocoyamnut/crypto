@@ -88,7 +88,7 @@ func newPrivateKey(n *bigmod.Modulus, e int, d *bigmod.Nat, p, q *bigmod.Modulus
 	// Theorem: qInv = q⁻¹ mod p = q^(p-2) mod p.
 	if p.Nat().IsOdd() == 0 {
 		// [bigmod.Nat.Exp] requires an odd modulus.
-		return nil, errors.New("crypto/rsa: p is even")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: p is even")
 	}
 	pMinusTwo := p.Nat().SubOne(p).SubOne(p).Bytes(p)
 	qInv := bigmod.NewNat().Mod(q.Nat(), p)
@@ -216,14 +216,14 @@ func checkPrivateKey(priv *PrivateKey) error {
 	// Check that pq ≡ 1 mod N (and that p < N and q < N).
 	pN := bigmod.NewNat().ExpandFor(N)
 	if _, err := pN.SetBytes(p.Nat().Bytes(p), N); err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	qN := bigmod.NewNat().ExpandFor(N)
 	if _, err := qN.SetBytes(q.Nat().Bytes(q), N); err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	if pN.Mul(qN, N).IsZero() != 1 {
-		return errors.New("crypto/rsa: p * q != n")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: p * q != n")
 	}
 
 	// Check that de ≡ 1 mod p-1, and de ≡ 1 mod q-1.
@@ -236,31 +236,31 @@ func checkPrivateKey(priv *PrivateKey) error {
 	// This checks dP, dQ, and e.
 	pMinus1, err := bigmod.NewModulus(p.Nat().SubOne(p).Bytes(p))
 	if err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	dP, err := bigmod.NewNat().SetBytes(priv.dP, pMinus1)
 	if err != nil {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 	de := bigmod.NewNat()
 	de.SetUint(uint(priv.pub.E)).ExpandFor(pMinus1)
 	de.Mul(dP, pMinus1)
 	if de.IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 
 	qMinus1, err := bigmod.NewModulus(q.Nat().SubOne(q).Bytes(q))
 	if err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	dQ, err := bigmod.NewNat().SetBytes(priv.dQ, qMinus1)
 	if err != nil {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 	de.SetUint(uint(priv.pub.E)).ExpandFor(qMinus1)
 	de.Mul(dQ, qMinus1)
 	if de.IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 
 	// Check that qInv * q ≡ 1 mod p.
@@ -270,18 +270,18 @@ func checkPrivateKey(priv *PrivateKey) error {
 		qP = bigmod.NewNat().Mod(q.Nat(), p)
 	}
 	if qP.Mul(priv.qInv, p).IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT coefficient")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT coefficient")
 	}
 
 	// Check d against dP and dQ, even though we never actually use d,
 	// to make sure the key is consistent.
 	dP1 := bigmod.NewNat().Mod(priv.d, pMinus1)
 	if dP1.Equal(dP) != 1 {
-		return errors.New("crypto/rsa: d does not match dP")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: d does not match dP")
 	}
 	dQ1 := bigmod.NewNat().Mod(priv.d, qMinus1)
 	if dQ1.Equal(dQ) != 1 {
-		return errors.New("crypto/rsa: d does not match dQ")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: d does not match dQ")
 	}
 
 	// Check that |p - q| > 2^(nlen/2 - 100).
@@ -295,7 +295,7 @@ func checkPrivateKey(priv *PrivateKey) error {
 		// q > p
 		pQ, err := bigmod.NewNat().SetBytes(p.Nat().Bytes(p), q)
 		if err != nil {
-			return errors.New("crypto/rsa: p == q")
+			return errors.New("github.com/cocoyamnut/crypto/rsa: p == q")
 		}
 		// diff = 0 - p mod q = q - p
 		diff.ExpandFor(q).Sub(pQ, q)
@@ -307,7 +307,7 @@ func checkPrivateKey(priv *PrivateKey) error {
 	// A tiny bit of leakage is acceptable because it's not adaptive, an
 	// attacker only learns the magnitude of p - q.
 	if diff.BitLenVarTime() <= N.BitLen()/2-100 {
-		return errors.New("crypto/rsa: |p - q| too small")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: |p - q| too small")
 	}
 
 	// Check that d > 2^(nlen/2).
@@ -317,7 +317,7 @@ func checkPrivateKey(priv *PrivateKey) error {
 	//
 	// Likewise, the leakage of the magnitude of d is not adaptive.
 	if priv.d.BitLenVarTime() <= N.BitLen()/2 {
-		return errors.New("crypto/rsa: d too small")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: d too small")
 	}
 
 	return nil
@@ -326,10 +326,10 @@ func checkPrivateKey(priv *PrivateKey) error {
 func checkPublicKey(pub *PublicKey) (fipsApproved bool, err error) {
 	fipsApproved = true
 	if pub.N == nil {
-		return false, errors.New("crypto/rsa: missing public modulus")
+		return false, errors.New("github.com/cocoyamnut/crypto/rsa: missing public modulus")
 	}
 	if pub.N.Nat().IsOdd() == 0 {
-		return false, errors.New("crypto/rsa: public modulus is even")
+		return false, errors.New("github.com/cocoyamnut/crypto/rsa: public modulus is even")
 	}
 	// FIPS 186-5, Section 5.1: "This standard specifies the use of a modulus
 	// whose bit length is an even integer and greater than or equal to 2048
@@ -341,12 +341,12 @@ func checkPublicKey(pub *PublicKey) (fipsApproved bool, err error) {
 		fipsApproved = false
 	}
 	if pub.E < 2 {
-		return false, errors.New("crypto/rsa: public exponent too small or negative")
+		return false, errors.New("github.com/cocoyamnut/crypto/rsa: public exponent too small or negative")
 	}
 	// e needs to be coprime with p-1 and q-1, since it must be invertible
 	// modulo λ(pq). Since p and q are prime, this means e needs to be odd.
 	if pub.E&1 == 0 {
-		return false, errors.New("crypto/rsa: public exponent is even")
+		return false, errors.New("github.com/cocoyamnut/crypto/rsa: public exponent is even")
 	}
 	// FIPS 186-5, Section 5.5(e): "The exponent e shall be an odd, positive
 	// integer such that 2¹⁶ < e < 2²⁵⁶."
@@ -358,7 +358,7 @@ func checkPublicKey(pub *PublicKey) (fipsApproved bool, err error) {
 	// int is 32 or 64 bits. See also
 	// https://www.imperialviolet.org/2012/03/16/rsae.html.
 	if pub.E > 1<<31-1 {
-		return false, errors.New("crypto/rsa: public exponent too large")
+		return false, errors.New("github.com/cocoyamnut/crypto/rsa: public exponent too large")
 	}
 	return fipsApproved, nil
 }
@@ -380,9 +380,9 @@ func encrypt(pub *PublicKey, plaintext []byte) ([]byte, error) {
 	return bigmod.NewNat().ExpShortVarTime(m, uint(pub.E), pub.N).Bytes(pub.N), nil
 }
 
-var ErrMessageTooLong = errors.New("crypto/rsa: message too long for RSA key size")
-var ErrDecryption = errors.New("crypto/rsa: decryption error")
-var ErrVerification = errors.New("crypto/rsa: verification error")
+var ErrMessageTooLong = errors.New("github.com/cocoyamnut/crypto/rsa: message too long for RSA key size")
+var ErrDecryption = errors.New("github.com/cocoyamnut/crypto/rsa: decryption error")
+var ErrVerification = errors.New("github.com/cocoyamnut/crypto/rsa: verification error")
 
 const withCheck = true
 const noCheck = false

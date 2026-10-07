@@ -21,7 +21,7 @@ import (
 
 func generateLegacy(c elliptic.Curve, rand io.Reader) (*PrivateKey, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
 	}
 
 	k, err := randFieldElement(c, rand)
@@ -87,7 +87,7 @@ func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err err
 
 func signLegacy(priv *PrivateKey, csprng io.Reader, hash []byte) (sig []byte, err error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
 	}
 
 	c := priv.Curve
@@ -159,7 +159,7 @@ func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {
 
 func verifyLegacy(pub *PublicKey, hash []byte, sig []byte) bool {
 	if fips140only.Enforced() {
-		panic("crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/ecdsa: use of custom curves is not allowed in FIPS 140-only mode")
 	}
 
 	rBytes, sBytes, err := parseSignature(sig)

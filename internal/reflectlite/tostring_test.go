@@ -9,7 +9,7 @@
 package reflectlite_test
 
 import (
-	. "internal/reflectlite"
+	. "github.com/cocoyamnut/crypto/internal/reflectlite"
 	"reflect"
 	"strconv"
 )

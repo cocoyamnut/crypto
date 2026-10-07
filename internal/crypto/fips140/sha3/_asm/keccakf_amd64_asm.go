@@ -105,7 +105,7 @@ func main() {
 	os.Setenv("GOOS", "linux")
 	os.Setenv("GOARCH", "amd64")
 
-	Package("crypto/internal/fips140/sha3")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3")
 	ConstraintExpr("!purego")
 	keccakF1600()
 	Generate()

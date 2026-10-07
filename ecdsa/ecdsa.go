@@ -370,7 +370,7 @@ func GenerateKey(c elliptic.Curve, r io.Reader) (*PrivateKey, error) {
 
 func generateFIPS[P ecdsa.Point[P]](curve elliptic.Curve, c *ecdsa.Curve[P], rand io.Reader) (*PrivateKey, error) {
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(rand) {
-		return nil, errors.New("crypto/ecdsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 	privateKey, err := ecdsa.GenerateKey(c, rand)
 	if err != nil {
@@ -420,7 +420,7 @@ func SignASN1(r io.Reader, priv *PrivateKey, hash []byte) ([]byte, error) {
 
 func signFIPS[P ecdsa.Point[P]](c *ecdsa.Curve[P], priv *PrivateKey, rand io.Reader, hash []byte) ([]byte, error) {
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(rand) {
-		return nil, errors.New("crypto/ecdsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 	k, err := privateKeyToFIPS(c, priv)
 	if err != nil {
@@ -465,7 +465,7 @@ func signFIPSDeterministic[P ecdsa.Point[P]](c *ecdsa.Curve[P], hashFunc crypto.
 	}
 	h := fips140hash.UnwrapNew(hashFunc.New)
 	if fips140only.Enforced() && !fips140only.ApprovedHash(h()) {
-		return nil, errors.New("crypto/ecdsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 	}
 	sig, err := ecdsa.SignDeterministic(c, h, k, hash)
 	if err != nil {

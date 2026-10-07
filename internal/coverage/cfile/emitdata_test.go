@@ -523,7 +523,7 @@ func TestIssue59563TruncatedCoverPkgAll(t *testing.T) {
 		// We're only interested in the specific function "large" for
 		// the testcase being built. See the #59563 for details on why
 		// size matters.
-		if !(strings.HasPrefix(f[0], "internal/coverage/cfile/testdata/issue59563/repro.go") && strings.Contains(line, "large")) {
+		if !(strings.HasPrefix(f[0], "github.com/cocoyamnut/crypto/internal/coverage/cfile/testdata/issue59563/repro.go") && strings.Contains(line, "large")) {
 			continue
 		}
 		nfound++

@@ -75,10 +75,10 @@ func checkFIPS140Only[Hash hash.Hash](h func() Hash, key []byte) error {
 		return nil
 	}
 	if len(key) < 112/8 {
-		return errors.New("crypto/hkdf: use of keys shorter than 112 bits is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/hkdf: use of keys shorter than 112 bits is not allowed in FIPS 140-only mode")
 	}
 	if !fips140only.ApprovedHash(h()) {
-		return errors.New("crypto/hkdf: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/hkdf: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 	}
 	return nil
 }

@@ -48,7 +48,7 @@ func (c *nistCurve) GenerateKey(r io.Reader) (*PrivateKey, error) {
 	r = rand.CustomReader(r)
 
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(r) {
-		return nil, errors.New("crypto/ecdh: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 
 	privateKey, err := c.generate(r)
@@ -85,11 +85,11 @@ func (c *nistCurve) NewPrivateKey(key []byte) (*PrivateKey, error) {
 	if boring.Enabled {
 		bk, err := boring.NewPrivateKeyECDH(c.name, key)
 		if err != nil {
-			return nil, errors.New("crypto/ecdh: invalid private key")
+			return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid private key")
 		}
 		pub, err := bk.PublicKey()
 		if err != nil {
-			return nil, errors.New("crypto/ecdh: invalid private key")
+			return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid private key")
 		}
 		k := &PrivateKey{
 			curve:      c,
@@ -121,7 +121,7 @@ func (c *nistCurve) NewPublicKey(key []byte) (*PublicKey, error) {
 	// Reject the point at infinity and compressed encodings.
 	// Note that boring.NewPublicKeyECDH would accept them.
 	if len(key) == 0 || key[0] != 4 {
-		return nil, errors.New("crypto/ecdh: invalid public key")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid public key")
 	}
 	k := &PublicKey{
 		curve:     c,
@@ -130,7 +130,7 @@ func (c *nistCurve) NewPublicKey(key []byte) (*PublicKey, error) {
 	if boring.Enabled {
 		bk, err := boring.NewPublicKeyECDH(c.name, k.publicKey)
 		if err != nil {
-			return nil, errors.New("crypto/ecdh: invalid public key")
+			return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid public key")
 		}
 		k.boring = bk
 	} else {

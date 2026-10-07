@@ -25,13 +25,13 @@ func (c *CBCEncrypter) BlockSize() int { return BlockSize }
 
 func (c *CBCEncrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%BlockSize != 0 {
-		panic("crypto/cipher: input not full blocks")
+		panic("github.com/cocoyamnut/crypto/cipher: input not full blocks")
 	}
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	fips140.RecordApproved()
 	if len(src) == 0 {
@@ -79,13 +79,13 @@ func (c *CBCDecrypter) BlockSize() int { return BlockSize }
 
 func (c *CBCDecrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%BlockSize != 0 {
-		panic("crypto/cipher: input not full blocks")
+		panic("github.com/cocoyamnut/crypto/cipher: input not full blocks")
 	}
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	fips140.RecordApproved()
 	if len(src) == 0 {

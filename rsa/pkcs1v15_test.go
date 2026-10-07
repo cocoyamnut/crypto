@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/rand"
-	. "crypto/rsa"
+	. "github.com/cocoyamnut/crypto/rsa"
 	"github.com/cocoyamnut/crypto/sha1"
 	"github.com/cocoyamnut/crypto/sha256"
 	"github.com/cocoyamnut/crypto/x509"

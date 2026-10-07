@@ -168,7 +168,7 @@ func (d *Digest) AppendBinary(b []byte) ([]byte, error) {
 
 func (d *Digest) UnmarshalBinary(b []byte) error {
 	if len(b) < len(magic512) {
-		return errors.New("crypto/sha512: invalid hash state identifier")
+		return errors.New("github.com/cocoyamnut/crypto/sha512: invalid hash state identifier")
 	}
 	switch {
 	case d.size == size384 && string(b[:len(magic384)]) == magic384:
@@ -176,10 +176,10 @@ func (d *Digest) UnmarshalBinary(b []byte) error {
 	case d.size == size256 && string(b[:len(magic512_256)]) == magic512_256:
 	case d.size == size512 && string(b[:len(magic512)]) == magic512:
 	default:
-		return errors.New("crypto/sha512: invalid hash state identifier")
+		return errors.New("github.com/cocoyamnut/crypto/sha512: invalid hash state identifier")
 	}
 	if len(b) != marshaledSize {
-		return errors.New("crypto/sha512: invalid hash state size")
+		return errors.New("github.com/cocoyamnut/crypto/sha512: invalid hash state size")
 	}
 	b = b[len(magic512):]
 	b, d.h[0] = consumeUint64(b)

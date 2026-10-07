@@ -11,7 +11,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	. "crypto/mldsa"
+	. "github.com/cocoyamnut/crypto/mldsa"
 	"github.com/cocoyamnut/crypto/sha3"
 	"encoding/hex"
 	"flag"

@@ -51,7 +51,7 @@ func init() {
 // but this way it's more evidently correct.
 func checkGenericIsExpected() {
 	if supportsAES {
-		panic("crypto/aes: internal error: using generic implementation despite hardware support")
+		panic("github.com/cocoyamnut/crypto/aes: internal error: using generic implementation despite hardware support")
 	}
 }
 

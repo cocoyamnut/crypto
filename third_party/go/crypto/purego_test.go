@@ -18,7 +18,7 @@ import (
 // such as TinyGo. See also the "crypto/...:purego" test in cmd/dist, which
 // ensures the packages build correctly.
 func TestPureGoTag(t *testing.T) {
-	cmd := testenv.Command(t, testenv.GoToolPath(t), "list", "-e", "crypto/...", "math/big")
+	cmd := testenv.Command(t, testenv.GoToolPath(t), "list", "-e", "github.com/cocoyamnut/crypto/...", "math/big")
 	cmd = testenv.CleanCmdEnv(cmd)
 	cmd.Env = append(cmd.Environ(), "GOOS=linux", "GOFIPS140=off")
 	cmd.Stderr = os.Stderr

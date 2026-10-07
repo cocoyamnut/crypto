@@ -42,7 +42,7 @@ var (
 )
 
 func main() {
-	Package("crypto/internal/fips140/aes/gcm")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm")
 	ConstraintExpr("!purego")
 
 	gcmAesFinish()

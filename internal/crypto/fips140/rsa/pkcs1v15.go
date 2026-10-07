@@ -70,10 +70,10 @@ func pkcs1v15ConstructEM(pub *PublicKey, hash string, hashed []byte) ([]byte, er
 		var ok bool
 		prefix, ok = hashPrefixes[hash]
 		if !ok {
-			return nil, errors.New("crypto/rsa: unsupported hash function")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: unsupported hash function")
 		}
 		if len(hashed) != hashSize(hash) {
-			return nil, errors.New("crypto/rsa: hashed message length does not match hash function")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: hashed message length does not match hash function")
 		}
 	}
 

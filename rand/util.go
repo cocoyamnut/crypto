@@ -20,10 +20,10 @@ import (
 // in a future Go release. Instead, use [testing/cryptotest.SetGlobalRandom].
 func Prime(r io.Reader, bits int) (*big.Int, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/rand: use of Prime is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rand: use of Prime is not allowed in FIPS 140-only mode")
 	}
 	if bits < 2 {
-		return nil, errors.New("crypto/rand: prime size must be at least 2-bit")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rand: prime size must be at least 2-bit")
 	}
 
 	r = rand.CustomReader(r)
@@ -70,7 +70,7 @@ func Prime(r io.Reader, bits int) (*big.Int, error) {
 // returns an error if rand.Read returns one.
 func Int(rand io.Reader, max *big.Int) (n *big.Int, err error) {
 	if max.Sign() <= 0 {
-		panic("crypto/rand: argument to Int is <= 0")
+		panic("github.com/cocoyamnut/crypto/rand: argument to Int is <= 0")
 	}
 	n = new(big.Int)
 	n.Sub(max, n.SetUint64(1))

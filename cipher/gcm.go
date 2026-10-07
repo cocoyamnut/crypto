@@ -25,7 +25,7 @@ const (
 // with the standard nonce length.
 func NewGCM(cipher Block) (AEAD, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
+		return nil, errors.New("github.com/cocoyamnut/crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
 	}
 	return newGCM(cipher, gcmStandardNonceSize, gcmTagSize)
 }
@@ -39,7 +39,7 @@ func NewGCM(cipher Block) (AEAD, error) {
 // [NewGCM], which is faster and more resistant to misuse.
 func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
+		return nil, errors.New("github.com/cocoyamnut/crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
 	}
 	return newGCM(cipher, size, gcmTagSize)
 }
@@ -54,7 +54,7 @@ func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error) {
 // [NewGCM], which is more resistant to misuse.
 func NewGCMWithTagSize(cipher Block, tagSize int) (AEAD, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
+		return nil, errors.New("github.com/cocoyamnut/crypto/cipher: use of GCM with arbitrary IVs is not allowed in FIPS 140-only mode, use NewGCMWithRandomNonce")
 	}
 	return newGCM(cipher, gcmStandardNonceSize, tagSize)
 }
@@ -63,7 +63,7 @@ func newGCM(cipher Block, nonceSize, tagSize int) (AEAD, error) {
 	c, ok := cipher.(*aes.Block)
 	if !ok {
 		if fips140only.Enforced() {
-			return nil, errors.New("crypto/cipher: use of GCM with non-AES ciphers is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/cipher: use of GCM with non-AES ciphers is not allowed in FIPS 140-only mode")
 		}
 		return newGCMFallback(cipher, nonceSize, tagSize)
 	}
@@ -112,15 +112,15 @@ func (g gcmWithRandomNonce) Overhead() int {
 
 func (g gcmWithRandomNonce) Seal(dst, nonce, plaintext, additionalData []byte) []byte {
 	if len(nonce) != 0 {
-		panic("crypto/cipher: non-empty nonce passed to GCMWithRandomNonce")
+		panic("github.com/cocoyamnut/crypto/cipher: non-empty nonce passed to GCMWithRandomNonce")
 	}
 
 	ret, out := sliceForAppend(dst, gcmStandardNonceSize+len(plaintext)+gcmTagSize)
 	if alias.InexactOverlap(out, plaintext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, additionalData) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 	nonce = out[:gcmStandardNonceSize]
 	ciphertext := out[gcmStandardNonceSize:]
@@ -159,7 +159,7 @@ func (g gcmWithRandomNonce) Seal(dst, nonce, plaintext, additionalData []byte) [
 
 func (g gcmWithRandomNonce) Open(dst, nonce, ciphertext, additionalData []byte) ([]byte, error) {
 	if len(nonce) != 0 {
-		panic("crypto/cipher: non-empty nonce passed to GCMWithRandomNonce")
+		panic("github.com/cocoyamnut/crypto/cipher: non-empty nonce passed to GCMWithRandomNonce")
 	}
 	if len(ciphertext) < gcmStandardNonceSize+gcmTagSize {
 		return nil, errOpen
@@ -167,10 +167,10 @@ func (g gcmWithRandomNonce) Open(dst, nonce, ciphertext, additionalData []byte) 
 
 	ret, out := sliceForAppend(dst, len(ciphertext)-gcmStandardNonceSize-gcmTagSize)
 	if alias.InexactOverlap(out, ciphertext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, additionalData) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 	// See the discussion in Seal. Note that if there is any overlap at this
 	// point, it's because out = ciphertext, so out must have enough capacity
@@ -235,21 +235,21 @@ func (g *gcmFallback) Overhead() int {
 
 func (g *gcmFallback) Seal(dst, nonce, plaintext, additionalData []byte) []byte {
 	if len(nonce) != g.nonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 	if g.nonceSize == 0 {
-		panic("crypto/cipher: incorrect GCM nonce size")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect GCM nonce size")
 	}
 	if uint64(len(plaintext)) > uint64((1<<32)-2)*gcmBlockSize {
-		panic("crypto/cipher: message too large for GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: message too large for GCM")
 	}
 
 	ret, out := sliceForAppend(dst, len(plaintext)+g.tagSize)
 	if alias.InexactOverlap(out, plaintext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, additionalData) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 
 	var H, counter, tagMask [gcmBlockSize]byte
@@ -270,10 +270,10 @@ var errOpen = errors.New("cipher: message authentication failed")
 
 func (g *gcmFallback) Open(dst, nonce, ciphertext, additionalData []byte) ([]byte, error) {
 	if len(nonce) != g.nonceSize {
-		panic("crypto/cipher: incorrect nonce length given to GCM")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect nonce length given to GCM")
 	}
 	if g.tagSize < gcmMinimumTagSize {
-		panic("crypto/cipher: incorrect GCM tag size")
+		panic("github.com/cocoyamnut/crypto/cipher: incorrect GCM tag size")
 	}
 
 	if len(ciphertext) < g.tagSize {
@@ -285,10 +285,10 @@ func (g *gcmFallback) Open(dst, nonce, ciphertext, additionalData []byte) ([]byt
 
 	ret, out := sliceForAppend(dst, len(ciphertext)-g.tagSize)
 	if alias.InexactOverlap(out, ciphertext) {
-		panic("crypto/cipher: invalid buffer overlap of output and input")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and input")
 	}
 	if alias.AnyOverlap(out, additionalData) {
-		panic("crypto/cipher: invalid buffer overlap of output and additional data")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap of output and additional data")
 	}
 
 	var H, counter, tagMask [gcmBlockSize]byte

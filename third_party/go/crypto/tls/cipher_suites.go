@@ -16,7 +16,7 @@ import (
 	"github.com/cocoyamnut/crypto/rc4"
 	"github.com/cocoyamnut/crypto/sha1"
 	"github.com/cocoyamnut/crypto/sha256"
-	_ "crypto/sha512" // for crypto.SHA384
+	_ "github.com/cocoyamnut/crypto/sha512" // for crypto.SHA384
 	"fmt"
 	"hash"
 	"github.com/cocoyamnut/crypto/internal/cpu"

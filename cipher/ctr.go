@@ -43,7 +43,7 @@ func NewCTR(block Block, iv []byte) Stream {
 		return aesCtrWrapper{aes.NewCTR(block, iv)}
 	}
 	if fips140only.Enforced() {
-		panic("crypto/cipher: use of CTR with non-AES ciphers is not allowed in FIPS 140-only mode")
+		panic("github.com/cocoyamnut/crypto/cipher: use of CTR with non-AES ciphers is not allowed in FIPS 140-only mode")
 	}
 	if ctr, ok := block.(ctrAble); ok {
 		return ctr.NewCTR(iv)
@@ -95,13 +95,13 @@ func (x *ctr) refill() {
 
 func (x *ctr) XORKeyStream(dst, src []byte) {
 	if len(dst) < len(src) {
-		panic("crypto/cipher: output smaller than input")
+		panic("github.com/cocoyamnut/crypto/cipher: output smaller than input")
 	}
 	if alias.InexactOverlap(dst[:len(src)], src) {
-		panic("crypto/cipher: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/cipher: invalid buffer overlap")
 	}
 	if _, ok := x.b.(*aes.Block); ok {
-		panic("crypto/cipher: internal error: generic CTR used with AES")
+		panic("github.com/cocoyamnut/crypto/cipher: internal error: generic CTR used with AES")
 	}
 	for len(src) > 0 {
 		if x.outUsed >= len(x.out)-x.b.BlockSize() {

@@ -28,7 +28,7 @@ func TestLinkerGC(t *testing.T) {
 		{
 			name: "empty_import",
 			program: `package main
-import _ "crypto/tls"
+import _ "github.com/cocoyamnut/crypto/tls"
 func main() {}
 `,
 			bad: []string{

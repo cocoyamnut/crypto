@@ -6,7 +6,7 @@ package strconv_test
 
 import (
 	"fmt"
-	. "internal/strconv"
+	. "github.com/cocoyamnut/crypto/internal/strconv"
 	"reflect"
 	"testing"
 )

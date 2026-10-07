@@ -133,7 +133,7 @@ func (h *HMAC) Reset() {
 type errCloneUnsupported struct{}
 
 func (e errCloneUnsupported) Error() string {
-	return "crypto/hmac: hash does not support hash.Cloner"
+	return "github.com/cocoyamnut/crypto/hmac: hash does not support hash.Cloner"
 }
 
 func (e errCloneUnsupported) Unwrap() error {
@@ -180,7 +180,7 @@ func New[H hash.Hash](h func() H, key []byte) *HMAC {
 		}
 	}()
 	if !unique {
-		panic("crypto/hmac: hash generation function does not produce unique values")
+		panic("github.com/cocoyamnut/crypto/hmac: hash generation function does not produce unique values")
 	}
 	blocksize := hm.inner.BlockSize()
 	hm.ipad = make([]byte, blocksize)

@@ -43,7 +43,7 @@ func TestFuncPCCompileError(t *testing.T) {
 
 	// Write an importcfg file for the dependencies of the package.
 	importcfgfile := filepath.Join(tmpdir, "hello.importcfg")
-	testenv.WriteImportcfg(t, importcfgfile, nil, "internal/abi")
+	testenv.WriteImportcfg(t, importcfgfile, nil, "github.com/cocoyamnut/crypto/internal/abi")
 
 	// parse assembly code for symabi.
 	cmd := testenv.Command(t, testenv.GoToolPath(t), "tool", "asm", "-p=p", "-gensymabis", "-o", symabi, asmSrc)

@@ -44,7 +44,7 @@ func (c *CTR) XORKeyStream(dst, src []byte) {
 	var carry uint64
 	c.offset, carry = bits.Add64(c.offset, uint64(len(src)), 0)
 	if carry != 0 {
-		panic("crypto/aes: counter overflow")
+		panic("github.com/cocoyamnut/crypto/aes: counter overflow")
 	}
 }
 
@@ -55,7 +55,7 @@ func RoundToBlock(c *CTR) {
 		var carry uint64
 		c.offset, carry = bits.Add64(c.offset, BlockSize-remainder, 0)
 		if carry != 0 {
-			panic("crypto/aes: counter overflow")
+			panic("github.com/cocoyamnut/crypto/aes: counter overflow")
 		}
 	}
 }
@@ -66,11 +66,11 @@ func RoundToBlock(c *CTR) {
 // to 16 EiB from the start.
 func (c *CTR) XORKeyStreamAt(dst, src []byte, offset uint64) {
 	if len(dst) < len(src) {
-		panic("crypto/aes: len(dst) < len(src)")
+		panic("github.com/cocoyamnut/crypto/aes: len(dst) < len(src)")
 	}
 	dst = dst[:len(src)]
 	if alias.InexactOverlap(dst, src) {
-		panic("crypto/aes: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/aes: invalid buffer overlap")
 	}
 	fips140.RecordApproved()
 

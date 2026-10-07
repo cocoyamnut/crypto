@@ -10,7 +10,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/rand"
-	. "crypto/rsa"
+	. "github.com/cocoyamnut/crypto/rsa"
 	"github.com/cocoyamnut/crypto/sha256"
 	"github.com/cocoyamnut/crypto/sha512"
 	"encoding/hex"
@@ -250,8 +250,8 @@ func TestInvalidPSSSaltLength(t *testing.T) {
 	if _, err := SignPSS(rand.Reader, key, crypto.SHA256, digest[:], &PSSOptions{
 		SaltLength: -2,
 		Hash:       crypto.SHA256,
-	}); err.Error() != "crypto/rsa: invalid PSS salt length" {
-		t.Fatalf("SignPSS unexpected error: got %v, want %v", err, "crypto/rsa: invalid PSS salt length")
+	}); err.Error() != "github.com/cocoyamnut/crypto/rsa: invalid PSS salt length" {
+		t.Fatalf("SignPSS unexpected error: got %v, want %v", err, "github.com/cocoyamnut/crypto/rsa: invalid PSS salt length")
 	}
 
 	// We don't check the specific error here, because crypto/rsa and crypto/internal/boring

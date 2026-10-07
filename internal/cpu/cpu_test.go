@@ -5,7 +5,7 @@
 package cpu_test
 
 import (
-	. "internal/cpu"
+	. "github.com/cocoyamnut/crypto/internal/cpu"
 	"github.com/cocoyamnut/crypto/internal/godebug"
 	"github.com/cocoyamnut/crypto/internal/testenv"
 	"os/exec"

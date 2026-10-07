@@ -37,7 +37,7 @@ func (c *x25519Curve) String() string {
 
 func (c *x25519Curve) GenerateKey(r io.Reader) (*PrivateKey, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
 	}
 	r = rand.CustomReader(r)
 	key := make([]byte, x25519PrivateKeySize)
@@ -49,10 +49,10 @@ func (c *x25519Curve) GenerateKey(r io.Reader) (*PrivateKey, error) {
 
 func (c *x25519Curve) NewPrivateKey(key []byte) (*PrivateKey, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
 	}
 	if len(key) != x25519PrivateKeySize {
-		return nil, errors.New("crypto/ecdh: invalid private key size")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid private key size")
 	}
 	publicKey := make([]byte, x25519PublicKeySize)
 	x25519ScalarBaseMult(publicKey, key)
@@ -68,10 +68,10 @@ func (c *x25519Curve) NewPrivateKey(key []byte) (*PrivateKey, error) {
 
 func (c *x25519Curve) NewPublicKey(key []byte) (*PublicKey, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: use of X25519 is not allowed in FIPS 140-only mode")
 	}
 	if len(key) != x25519PublicKeySize {
-		return nil, errors.New("crypto/ecdh: invalid public key")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: invalid public key")
 	}
 	return &PublicKey{
 		curve:     c,
@@ -83,7 +83,7 @@ func (c *x25519Curve) ecdh(local *PrivateKey, remote *PublicKey) ([]byte, error)
 	out := make([]byte, x25519SharedSecretSize)
 	x25519ScalarMult(out, local.privateKey, remote.publicKey)
 	if isZero(out) {
-		return nil, errors.New("crypto/ecdh: bad X25519 remote ECDH input: low order point")
+		return nil, errors.New("github.com/cocoyamnut/crypto/ecdh: bad X25519 remote ECDH input: low order point")
 	}
 	return out, nil
 }
@@ -105,7 +105,7 @@ func x25519ScalarBaseMult(dst, scalar []byte) {
 	}); ok {
 		s, err := edwards25519.NewScalar().SetBytesWithClamping(scalar)
 		if err != nil {
-			panic("crypto/ecdh: internal error: invalid scalar length")
+			panic("github.com/cocoyamnut/crypto/ecdh: internal error: invalid scalar length")
 		}
 		p.ScalarBaseMult(s)
 		copy(dst, p.BytesMontgomery())

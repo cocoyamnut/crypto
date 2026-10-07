@@ -33,16 +33,16 @@ func (pub *TestingOnlyLargeExponentPublicKey) Size() int {
 
 func checkLargeExponentPublicKey(pub *TestingOnlyLargeExponentPublicKey) error {
 	if pub.N == nil {
-		return errors.New("crypto/rsa: missing public modulus")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: missing public modulus")
 	}
 	if pub.N.Nat().IsOdd() == 0 {
-		return errors.New("crypto/rsa: public modulus is even")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public modulus is even")
 	}
 	if pub.N.BitLen() < 2048 {
-		return errors.New("crypto/rsa: public modulus too small")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public modulus too small")
 	}
 	if pub.N.BitLen()%2 == 1 {
-		return errors.New("crypto/rsa: public modulus bit length not even")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public modulus bit length not even")
 	}
 	E := pub.E
 	for len(E) > 0 && E[0] == 0 {
@@ -50,13 +50,13 @@ func checkLargeExponentPublicKey(pub *TestingOnlyLargeExponentPublicKey) error {
 	}
 	if len(E) < 32/8 || (len(E) == 32/8 && E[0] < 0x80) {
 		// Exponents less than 2^31 must use [PublicKey].
-		return errors.New("crypto/rsa: public exponent too small")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public exponent too small")
 	}
 	if len(E) > 256/8 {
-		return errors.New("crypto/rsa: public exponent too large")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public exponent too large")
 	}
 	if E[len(E)-1]&1 == 0 {
-		return errors.New("crypto/rsa: public exponent is even")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public exponent is even")
 	}
 	return nil
 }
@@ -188,25 +188,25 @@ func checkLargeExponentPrivateKey(priv *TestingOnlyLargeExponentPrivateKey) erro
 	// Check that pq ≡ 1 mod N (and that p < N and q < N).
 	pN := bigmod.NewNat().ExpandFor(N)
 	if _, err := pN.SetBytes(p.Nat().Bytes(p), N); err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	qN := bigmod.NewNat().ExpandFor(N)
 	if _, err := qN.SetBytes(q.Nat().Bytes(q), N); err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	if pN.Mul(qN, N).IsZero() != 1 {
-		return errors.New("crypto/rsa: p * q != n")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: p * q != n")
 	}
 
 	// Check that de ≡ 1 mod p-1, and de ≡ 1 mod q-1.
 	// Uses byte-slice exponent for large exponents.
 	pMinus1, err := bigmod.NewModulus(p.Nat().SubOne(p).Bytes(p))
 	if err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	dP, err := bigmod.NewNat().SetBytes(priv.dP, pMinus1)
 	if err != nil {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 	de := bigmod.NewNat()
 	if _, err := de.SetBytes(priv.e, pMinus1); err != nil {
@@ -216,16 +216,16 @@ func checkLargeExponentPrivateKey(priv *TestingOnlyLargeExponentPrivateKey) erro
 	}
 	de.Mul(dP, pMinus1)
 	if de.IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 
 	qMinus1, err := bigmod.NewModulus(q.Nat().SubOne(q).Bytes(q))
 	if err != nil {
-		return errors.New("crypto/rsa: invalid prime")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid prime")
 	}
 	dQ, err := bigmod.NewNat().SetBytes(priv.dQ, qMinus1)
 	if err != nil {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 	if _, err := de.SetBytes(priv.e, qMinus1); err != nil {
 		// Exponent might be larger than q-1, reduce it.
@@ -234,7 +234,7 @@ func checkLargeExponentPrivateKey(priv *TestingOnlyLargeExponentPrivateKey) erro
 	}
 	de.Mul(dQ, qMinus1)
 	if de.IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT exponent")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT exponent")
 	}
 
 	// Check that qInv * q ≡ 1 mod p.
@@ -244,7 +244,7 @@ func checkLargeExponentPrivateKey(priv *TestingOnlyLargeExponentPrivateKey) erro
 		qP = bigmod.NewNat().Mod(q.Nat(), p)
 	}
 	if qP.Mul(priv.qInv, p).IsOne() != 1 {
-		return errors.New("crypto/rsa: invalid CRT coefficient")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: invalid CRT coefficient")
 	}
 
 	return nil

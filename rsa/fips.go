@@ -83,7 +83,7 @@ func SignPSS(random io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte
 	}
 
 	if !hash.Available() {
-		return nil, errors.New("crypto/rsa: requested hash function unavailable: " + hash.String())
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: requested hash function unavailable: " + hash.String())
 	}
 	h := fips140hash.Unwrap(hash.New())
 
@@ -91,10 +91,10 @@ func SignPSS(random io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte
 		return nil, err
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedHash(h) {
-		return nil, errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(random) {
-		return nil, errors.New("crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 
 	k, err := fipsPrivateKey(priv)
@@ -104,7 +104,7 @@ func SignPSS(random io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte
 
 	saltLength := opts.saltLength()
 	if fips140only.Enforced() && saltLength > h.Size() {
-		return nil, errors.New("crypto/rsa: use of PSS salt longer than the hash is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of PSS salt longer than the hash is not allowed in FIPS 140-only mode")
 	}
 	switch saltLength {
 	case PSSSaltLengthAuto:
@@ -118,7 +118,7 @@ func SignPSS(random io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte
 		// If we get here saltLength is either > 0 or < -1, in the
 		// latter case we fail out.
 		if saltLength <= 0 {
-			return nil, errors.New("crypto/rsa: invalid PSS salt length")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: invalid PSS salt length")
 		}
 	}
 
@@ -151,7 +151,7 @@ func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts
 	}
 
 	if !hash.Available() {
-		return errors.New("crypto/rsa: requested hash function unavailable: " + hash.String())
+		return errors.New("github.com/cocoyamnut/crypto/rsa: requested hash function unavailable: " + hash.String())
 	}
 	h := fips140hash.Unwrap(hash.New())
 
@@ -159,7 +159,7 @@ func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts
 		return err
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedHash(h) {
-		return errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 	}
 
 	k, err := fipsPublicKey(pub)
@@ -169,7 +169,7 @@ func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts
 
 	saltLength := opts.saltLength()
 	if fips140only.Enforced() && saltLength > h.Size() {
-		return errors.New("crypto/rsa: use of PSS salt longer than the hash is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of PSS salt longer than the hash is not allowed in FIPS 140-only mode")
 	}
 	switch saltLength {
 	case PSSSaltLengthAuto:
@@ -212,10 +212,10 @@ func EncryptOAEP(hash hash.Hash, random io.Reader, pub *PublicKey, msg []byte, l
 // See [EncryptOAEP] for additional details.
 func EncryptOAEPWithOptions(random io.Reader, pub *PublicKey, msg []byte, opts *OAEPOptions) ([]byte, error) {
 	if !opts.Hash.Available() {
-		return nil, errors.New("crypto/rsa: requested hash function unavailable: " + opts.Hash.String())
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: requested hash function unavailable: " + opts.Hash.String())
 	}
 	if opts.MGFHash != 0 && !opts.MGFHash.Available() {
-		return nil, errors.New("crypto/rsa: requested hash function unavailable: " + opts.MGFHash.String())
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: requested hash function unavailable: " + opts.MGFHash.String())
 	}
 	if opts.MGFHash == 0 {
 		return encryptOAEP(opts.Hash.New(), opts.Hash.New(), random, pub, msg, opts.Label)
@@ -250,10 +250,10 @@ func encryptOAEP(hash hash.Hash, mgfHash hash.Hash, random io.Reader, pub *Publi
 		return nil, err
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedHash(hash) {
-		return nil, errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(random) {
-		return nil, errors.New("crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 
 	k, err := fipsPublicKey(pub)
@@ -308,7 +308,7 @@ func decryptOAEP(hash, mgfHash hash.Hash, priv *PrivateKey, ciphertext []byte, l
 	}
 	if fips140only.Enforced() {
 		if !fips140only.ApprovedHash(hash) || !fips140only.ApprovedHash(mgfHash) {
-			return nil, errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 		}
 	}
 
@@ -336,7 +336,7 @@ func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed [
 	var hashName string
 	if hash != crypto.Hash(0) {
 		if len(hashed) != hash.Size() {
-			return nil, errors.New("crypto/rsa: input must be hashed message")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: input must be hashed message")
 		}
 		hashName = hash.String()
 	}
@@ -358,7 +358,7 @@ func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed [
 	}
 	if fips140only.Enforced() {
 		if !hash.Available() || !fips140only.ApprovedHash(fips140hash.Unwrap(hash.New())) {
-			return nil, errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 		}
 	}
 
@@ -381,7 +381,7 @@ func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte)
 	var hashName string
 	if hash != crypto.Hash(0) {
 		if len(hashed) != hash.Size() {
-			return errors.New("crypto/rsa: input must be hashed message")
+			return errors.New("github.com/cocoyamnut/crypto/rsa: input must be hashed message")
 		}
 		hashName = hash.String()
 	}
@@ -406,7 +406,7 @@ func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte)
 	}
 	if fips140only.Enforced() {
 		if !hash.Available() || !fips140only.ApprovedHash(fips140hash.Unwrap(hash.New())) {
-			return errors.New("crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+			return errors.New("github.com/cocoyamnut/crypto/rsa: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 		}
 	}
 
@@ -438,19 +438,19 @@ func checkFIPS140OnlyPublicKey(pub *PublicKey) error {
 		return nil
 	}
 	if pub.N == nil {
-		return errors.New("crypto/rsa: public key missing N")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: public key missing N")
 	}
 	if pub.N.BitLen() < 2048 {
-		return errors.New("crypto/rsa: use of keys smaller than 2048 bits is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of keys smaller than 2048 bits is not allowed in FIPS 140-only mode")
 	}
 	if pub.N.BitLen()%2 == 1 {
-		return errors.New("crypto/rsa: use of keys with odd size is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of keys with odd size is not allowed in FIPS 140-only mode")
 	}
 	if pub.E <= 1<<16 {
-		return errors.New("crypto/rsa: use of public exponent <= 2¹⁶ is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of public exponent <= 2¹⁶ is not allowed in FIPS 140-only mode")
 	}
 	if pub.E&1 == 0 {
-		return errors.New("crypto/rsa: use of even public exponent is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of even public exponent is not allowed in FIPS 140-only mode")
 	}
 	return nil
 }
@@ -463,10 +463,10 @@ func checkFIPS140OnlyPrivateKey(priv *PrivateKey) error {
 		return err
 	}
 	if len(priv.Primes) != 2 {
-		return errors.New("crypto/rsa: use of multi-prime keys is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of multi-prime keys is not allowed in FIPS 140-only mode")
 	}
 	if priv.Primes[0] == nil || priv.Primes[1] == nil || priv.Primes[0].BitLen() != priv.Primes[1].BitLen() {
-		return errors.New("crypto/rsa: use of primes of different sizes is not allowed in FIPS 140-only mode")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: use of primes of different sizes is not allowed in FIPS 140-only mode")
 	}
 	return nil
 }

@@ -8,7 +8,7 @@ import (
 	_ "embed"
 	"flag"
 	"fmt"
-	. "internal/strconv"
+	. "github.com/cocoyamnut/crypto/internal/strconv"
 	"io"
 	"net/http"
 	"os"

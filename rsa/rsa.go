@@ -49,7 +49,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/rsa"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"github.com/cocoyamnut/crypto/internal/crypto/rand"
-	cryptorand "crypto/rand"
+	cryptorand "github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"fmt"
@@ -203,7 +203,7 @@ func (priv *PrivateKey) Decrypt(rand io.Reader, ciphertext []byte, opts crypto.D
 		}
 
 	default:
-		return nil, errors.New("crypto/rsa: invalid options for Decrypt")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: invalid options for Decrypt")
 	}
 }
 
@@ -241,7 +241,7 @@ func (priv *PrivateKey) Validate() error {
 	// [crypto/x509.MarshalPKCS1PrivateKey], which unfortunately doesn't return
 	// an error, so we need to reject them here.
 	if len(priv.Primes) < 2 {
-		return errors.New("crypto/rsa: missing primes")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: missing primes")
 	}
 	// If Precomputed.fips is set and consistent, then the key has been
 	// validated by [rsa.NewPrivateKey] or [rsa.NewPrivateKeyWithoutCRT].
@@ -249,7 +249,7 @@ func (priv *PrivateKey) Validate() error {
 		return nil
 	}
 	if priv.Precomputed.fips != nil {
-		return errors.New("crypto/rsa: precomputed values are inconsistent with the key")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: precomputed values are inconsistent with the key")
 	}
 	_, err := priv.precompute()
 	return err
@@ -295,12 +295,12 @@ func checkKeySize(size int) error {
 		rsa1024min.IncNonDefault()
 		return nil
 	}
-	return fmt.Errorf("crypto/rsa: %d-bit keys are insecure (see https://go.dev/pkg/crypto/rsa#hdr-Minimum_key_size)", size)
+	return fmt.Errorf("github.com/cocoyamnut/crypto/rsa: %d-bit keys are insecure (see https://go.dev/pkg/crypto/rsa#hdr-Minimum_key_size)", size)
 }
 
 func checkPublicKeySize(k *PublicKey) error {
 	if k.N == nil {
-		return errors.New("crypto/rsa: missing public modulus")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: missing public modulus")
 	}
 	return checkKeySize(k.N.BitLen())
 }
@@ -336,7 +336,7 @@ func GenerateKey(random io.Reader, bits int) (*PrivateKey, error) {
 		Qinv := bbig.Dec(bQinv)
 		e64 := E.Int64()
 		if !E.IsInt64() || int64(int(e64)) != e64 {
-			return nil, errors.New("crypto/rsa: generated key exponent too large")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: generated key exponent too large")
 		}
 
 		key := &PrivateKey{
@@ -359,13 +359,13 @@ func GenerateKey(random io.Reader, bits int) (*PrivateKey, error) {
 	random = rand.CustomReader(random)
 
 	if fips140only.Enforced() && bits < 2048 {
-		return nil, errors.New("crypto/rsa: use of keys smaller than 2048 bits is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of keys smaller than 2048 bits is not allowed in FIPS 140-only mode")
 	}
 	if fips140only.Enforced() && bits%2 == 1 {
-		return nil, errors.New("crypto/rsa: use of keys with odd size is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: use of keys with odd size is not allowed in FIPS 140-only mode")
 	}
 	if fips140only.Enforced() && !fips140only.ApprovedRandomReader(random) {
-		return nil, errors.New("crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: only crypto/rand.Reader is allowed in FIPS 140-only mode")
 	}
 
 	k, err := rsa.GenerateKey(random, bits)
@@ -437,7 +437,7 @@ func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey
 		return GenerateKey(random, bits)
 	}
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/rsa: multi-prime RSA is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: multi-prime RSA is not allowed in FIPS 140-only mode")
 	}
 
 	random = rand.CustomReader(random)
@@ -446,7 +446,7 @@ func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey
 	priv.E = 65537
 
 	if nprimes < 2 {
-		return nil, errors.New("crypto/rsa: GenerateMultiPrimeKey: nprimes must be >= 2")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: GenerateMultiPrimeKey: nprimes must be >= 2")
 	}
 
 	if bits < 64 {
@@ -460,7 +460,7 @@ func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey
 		// in a reasonable amount of time.
 		pi /= 2
 		if pi <= float64(nprimes) {
-			return nil, errors.New("crypto/rsa: too few primes of given length to generate an RSA key")
+			return nil, errors.New("github.com/cocoyamnut/crypto/rsa: too few primes of given length to generate an RSA key")
 		}
 	}
 
@@ -538,15 +538,15 @@ NextSetOfPrimes:
 // ErrMessageTooLong is returned when attempting to encrypt or sign a message
 // which is too large for the size of the key. When using [SignPSS], this can also
 // be returned if the size of the salt is too large.
-var ErrMessageTooLong = errors.New("crypto/rsa: message too long for RSA key size")
+var ErrMessageTooLong = errors.New("github.com/cocoyamnut/crypto/rsa: message too long for RSA key size")
 
 // ErrDecryption represents a failure to decrypt a message.
 // It is deliberately vague to avoid adaptive attacks.
-var ErrDecryption = errors.New("crypto/rsa: decryption error")
+var ErrDecryption = errors.New("github.com/cocoyamnut/crypto/rsa: decryption error")
 
 // ErrVerification represents a failure to verify a signature.
 // It is deliberately vague to avoid adaptive attacks.
-var ErrVerification = errors.New("crypto/rsa: verification error")
+var ErrVerification = errors.New("github.com/cocoyamnut/crypto/rsa: verification error")
 
 // Precompute performs some calculations that speed up private key operations in
 // the future. It is safe to run on non-validated private keys, and it can speed
@@ -582,19 +582,19 @@ func (priv *PrivateKey) precompute() (PrecomputedValues, error) {
 	var precomputed PrecomputedValues
 
 	if priv.N == nil {
-		return precomputed, errors.New("crypto/rsa: missing public modulus")
+		return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: missing public modulus")
 	}
 	if priv.D == nil {
-		return precomputed, errors.New("crypto/rsa: missing private exponent")
+		return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: missing private exponent")
 	}
 	if len(priv.Primes) != 2 {
 		return priv.precomputeLegacy()
 	}
 	if priv.Primes[0] == nil {
-		return precomputed, errors.New("crypto/rsa: prime P is nil")
+		return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime P is nil")
 	}
 	if priv.Primes[1] == nil {
-		return precomputed, errors.New("crypto/rsa: prime Q is nil")
+		return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime Q is nil")
 	}
 
 	// If the CRT values are already set, use them.
@@ -642,10 +642,10 @@ func (priv *PrivateKey) precomputeLegacy() (PrecomputedValues, error) {
 	// Ensure the Mod and ModInverse calls below don't panic.
 	for _, prime := range priv.Primes {
 		if prime == nil {
-			return precomputed, errors.New("crypto/rsa: prime factor is nil")
+			return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime factor is nil")
 		}
 		if prime.Cmp(bigOne) <= 0 {
-			return precomputed, errors.New("crypto/rsa: prime factor is <= 1")
+			return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime factor is <= 1")
 		}
 	}
 
@@ -657,7 +657,7 @@ func (priv *PrivateKey) precomputeLegacy() (PrecomputedValues, error) {
 
 	precomputed.Qinv = new(big.Int).ModInverse(priv.Primes[1], priv.Primes[0])
 	if precomputed.Qinv == nil {
-		return precomputed, errors.New("crypto/rsa: prime factors are not relatively prime")
+		return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime factors are not relatively prime")
 	}
 
 	r := new(big.Int).Mul(priv.Primes[0], priv.Primes[1])
@@ -672,7 +672,7 @@ func (priv *PrivateKey) precomputeLegacy() (PrecomputedValues, error) {
 		values.R = new(big.Int).Set(r)
 		values.Coeff = new(big.Int).ModInverse(r, prime)
 		if values.Coeff == nil {
-			return precomputed, errors.New("crypto/rsa: prime factors are not relatively prime")
+			return precomputed, errors.New("github.com/cocoyamnut/crypto/rsa: prime factors are not relatively prime")
 		}
 
 		r.Mul(r, prime)

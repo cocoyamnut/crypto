@@ -83,7 +83,7 @@ func emsaPSSEncode(mHash []byte, emBits int, salt []byte, hash hash.Hash) ([]byt
 	// 2.  Let mHash = Hash(M), an octet string of length hLen.
 
 	if len(mHash) != hLen {
-		return nil, errors.New("crypto/rsa: input must be hashed with given hash")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: input must be hashed with given hash")
 	}
 
 	// 3.  If emLen < hLen + sLen + 2, output "encoding error" and stop.
@@ -278,7 +278,7 @@ func SignPSS(rand io.Reader, priv *PrivateKey, hash hash.Hash, hashed []byte, sa
 	// well-specified way.
 
 	if saltLength < 0 {
-		return nil, errors.New("crypto/rsa: salt length cannot be negative")
+		return nil, errors.New("github.com/cocoyamnut/crypto/rsa: salt length cannot be negative")
 	}
 	// FIPS 186-5, Section 5.4(g): "the length (in bytes) of the salt (sLen)
 	// shall satisfy 0 ≤ sLen ≤ hLen".
@@ -320,7 +320,7 @@ func VerifyPSS(pub *PublicKey, hash hash.Hash, digest []byte, sig []byte) error 
 // VerifyPSSWithSaltLength verifies sig with RSASSA-PSS and an expected salt length.
 func VerifyPSSWithSaltLength(pub *PublicKey, hash hash.Hash, digest []byte, sig []byte, saltLength int) error {
 	if saltLength < 0 {
-		return errors.New("crypto/rsa: salt length cannot be negative")
+		return errors.New("github.com/cocoyamnut/crypto/rsa: salt length cannot be negative")
 	}
 	return verifyPSS(pub, hash, digest, sig, saltLength)
 }

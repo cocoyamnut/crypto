@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
-	. "crypto/mlkem"
+	. "github.com/cocoyamnut/crypto/mlkem"
 	"github.com/cocoyamnut/crypto/mlkem/mlkemtest"
 	"testing"
 )

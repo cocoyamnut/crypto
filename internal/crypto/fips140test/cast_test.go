@@ -77,7 +77,7 @@ func TestAllCASTs(t *testing.T) {
 
 	// Ask "go list" for the location of the crypto/internal/fips140 tree, as it
 	// might be the unpacked frozen tree selected with GOFIPS140.
-	cmd := testenv.Command(t, testenv.GoToolPath(t), "list", "-f", `{{.Dir}}`, "crypto/internal/fips140")
+	cmd := testenv.Command(t, testenv.GoToolPath(t), "list", "-f", `{{.Dir}}`, "github.com/cocoyamnut/crypto/internal/crypto/fips140")
 	out, err := testenv.CleanCmdEnv(cmd).CombinedOutput()
 	if err != nil {
 		t.Fatalf("go list: %v\n%s", err, out)

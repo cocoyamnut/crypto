@@ -41,13 +41,13 @@ func Key[Hash hash.Hash](h func() Hash, password string, salt []byte, iter, keyL
 	fh := fips140hash.UnwrapNew(h)
 	if fips140only.Enforced() {
 		if keyLength < 112/8 {
-			return nil, errors.New("crypto/pbkdf2: use of keys shorter than 112 bits is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/pbkdf2: use of keys shorter than 112 bits is not allowed in FIPS 140-only mode")
 		}
 		if len(salt) < 128/8 {
-			return nil, errors.New("crypto/pbkdf2: use of salts shorter than 128 bits is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/pbkdf2: use of salts shorter than 128 bits is not allowed in FIPS 140-only mode")
 		}
 		if !fips140only.ApprovedHash(fh()) {
-			return nil, errors.New("crypto/pbkdf2: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
+			return nil, errors.New("github.com/cocoyamnut/crypto/pbkdf2: use of hash functions other than SHA-2 or SHA-3 is not allowed in FIPS 140-only mode")
 		}
 	}
 	return pbkdf2.Key(fh, password, salt, iter, keyLength)

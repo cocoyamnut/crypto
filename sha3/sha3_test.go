@@ -7,7 +7,7 @@ package sha3_test
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
-	. "crypto/sha3"
+	. "github.com/cocoyamnut/crypto/sha3"
 	"encoding/hex"
 	"github.com/cocoyamnut/crypto/hash"
 	"io"

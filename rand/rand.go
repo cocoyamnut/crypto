@@ -61,7 +61,7 @@ func Read(b []byte) (n int, err error) {
 		copy(b, bb)
 	}
 	if err != nil {
-		fatal("crypto/rand: failed to read random data (see https://go.dev/issue/66821): " + err.Error())
+		fatal("github.com/cocoyamnut/crypto/rand: failed to read random data (see https://go.dev/issue/66821): " + err.Error())
 		panic("unreachable") // To be sure.
 	}
 	return len(b), nil

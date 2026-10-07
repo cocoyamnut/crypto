@@ -6,7 +6,7 @@ package sync_test
 
 import (
 	"fmt"
-	isync "internal/sync"
+	isync "github.com/cocoyamnut/crypto/internal/sync"
 	"math"
 	"runtime"
 	"strconv"

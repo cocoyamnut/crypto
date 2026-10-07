@@ -231,6 +231,6 @@ func readIntLE(b []byte, size uintptr) uint64 {
 	case 8:
 		return uint64(byteorder.LEUint64(b))
 	default:
-		panic("internal/poll: readInt with unsupported size")
+		panic("github.com/cocoyamnut/crypto/internal/poll: readInt with unsupported size")
 	}
 }

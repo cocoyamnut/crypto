@@ -19,7 +19,7 @@ const BlockSize = 8
 type KeySizeError int
 
 func (k KeySizeError) Error() string {
-	return "crypto/des: invalid key size " + strconv.Itoa(int(k))
+	return "github.com/cocoyamnut/crypto/des: invalid key size " + strconv.Itoa(int(k))
 }
 
 // desCipher is an instance of DES encryption.
@@ -30,7 +30,7 @@ type desCipher struct {
 // NewCipher creates and returns a new [cipher.Block].
 func NewCipher(key []byte) (cipher.Block, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/des: use of DES is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/des: use of DES is not allowed in FIPS 140-only mode")
 	}
 
 	if len(key) != 8 {
@@ -46,26 +46,26 @@ func (c *desCipher) BlockSize() int { return BlockSize }
 
 func (c *desCipher) Encrypt(dst, src []byte) {
 	if len(src) < BlockSize {
-		panic("crypto/des: input not full block")
+		panic("github.com/cocoyamnut/crypto/des: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/des: output not full block")
+		panic("github.com/cocoyamnut/crypto/des: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/des: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/des: invalid buffer overlap")
 	}
 	cryptBlock(c.subkeys[:], dst, src, false)
 }
 
 func (c *desCipher) Decrypt(dst, src []byte) {
 	if len(src) < BlockSize {
-		panic("crypto/des: input not full block")
+		panic("github.com/cocoyamnut/crypto/des: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/des: output not full block")
+		panic("github.com/cocoyamnut/crypto/des: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/des: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/des: invalid buffer overlap")
 	}
 	cryptBlock(c.subkeys[:], dst, src, true)
 }
@@ -78,7 +78,7 @@ type tripleDESCipher struct {
 // NewTripleDESCipher creates and returns a new [cipher.Block].
 func NewTripleDESCipher(key []byte) (cipher.Block, error) {
 	if fips140only.Enforced() {
-		return nil, errors.New("crypto/des: use of TripleDES is not allowed in FIPS 140-only mode")
+		return nil, errors.New("github.com/cocoyamnut/crypto/des: use of TripleDES is not allowed in FIPS 140-only mode")
 	}
 
 	if len(key) != 24 {
@@ -96,13 +96,13 @@ func (c *tripleDESCipher) BlockSize() int { return BlockSize }
 
 func (c *tripleDESCipher) Encrypt(dst, src []byte) {
 	if len(src) < BlockSize {
-		panic("crypto/des: input not full block")
+		panic("github.com/cocoyamnut/crypto/des: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/des: output not full block")
+		panic("github.com/cocoyamnut/crypto/des: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/des: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/des: invalid buffer overlap")
 	}
 
 	b := byteorder.BEUint64(src)
@@ -131,13 +131,13 @@ func (c *tripleDESCipher) Encrypt(dst, src []byte) {
 
 func (c *tripleDESCipher) Decrypt(dst, src []byte) {
 	if len(src) < BlockSize {
-		panic("crypto/des: input not full block")
+		panic("github.com/cocoyamnut/crypto/des: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/des: output not full block")
+		panic("github.com/cocoyamnut/crypto/des: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/des: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/des: invalid buffer overlap")
 	}
 
 	b := byteorder.BEUint64(src)

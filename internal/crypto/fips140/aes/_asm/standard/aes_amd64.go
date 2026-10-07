@@ -17,7 +17,7 @@ import (
 //go:generate go run . -out ../../aes_amd64.s
 
 func main() {
-	Package("crypto/aes")
+	Package("github.com/cocoyamnut/crypto/aes")
 	ConstraintExpr("!purego")
 	encryptBlockAsm()
 	decryptBlockAsm()

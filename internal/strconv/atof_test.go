@@ -5,7 +5,7 @@
 package strconv_test
 
 import (
-	. "internal/strconv"
+	. "github.com/cocoyamnut/crypto/internal/strconv"
 	"math"
 	"math/rand"
 	"reflect"

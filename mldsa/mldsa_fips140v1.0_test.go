@@ -8,7 +8,7 @@ package mldsa_test
 
 import (
 	"github.com/cocoyamnut/crypto"
-	. "crypto/mldsa"
+	. "github.com/cocoyamnut/crypto/mldsa"
 	"testing"
 )
 

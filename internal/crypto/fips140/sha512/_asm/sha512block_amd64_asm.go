@@ -144,7 +144,7 @@ func main() {
 	os.Setenv("GOOS", "linux")
 	os.Setenv("GOARCH", "amd64")
 
-	Package("crypto/internal/fips140/sha512")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512")
 	ConstraintExpr("!purego")
 	blockAVX2()
 	Generate()

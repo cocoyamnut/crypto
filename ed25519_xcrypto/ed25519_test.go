@@ -5,7 +5,7 @@
 package ed25519_test
 
 import (
-	ed25519std "crypto/ed25519"
+	ed25519std "github.com/cocoyamnut/crypto/ed25519"
 	"testing"
 
 	"github.com/cocoyamnut/crypto/ed25519_xcrypto"

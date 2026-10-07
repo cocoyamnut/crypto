@@ -5,7 +5,7 @@
 package sysinfo_test
 
 import (
-	. "internal/sysinfo"
+	. "github.com/cocoyamnut/crypto/internal/sysinfo"
 	"testing"
 )
 

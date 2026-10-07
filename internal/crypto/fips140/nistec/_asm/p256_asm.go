@@ -43,7 +43,7 @@ var (
 )
 
 func main() {
-	Package("crypto/internal/fips140/nistec")
+	Package("github.com/cocoyamnut/crypto/internal/crypto/fips140/nistec")
 	ConstraintExpr("!purego")
 	p256MovCond()
 	p256NegCond()

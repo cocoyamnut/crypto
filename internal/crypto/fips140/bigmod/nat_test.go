@@ -7,7 +7,7 @@ package bigmod
 import (
 	"bufio"
 	"bytes"
-	cryptorand "crypto/rand"
+	cryptorand "github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"
 	"fmt"
 	"math/big"

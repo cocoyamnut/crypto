@@ -55,7 +55,7 @@ func (b *blockExpanded) roundKeysSize() int {
 type KeySizeError int
 
 func (k KeySizeError) Error() string {
-	return "crypto/aes: invalid key size " + strconv.Itoa(int(k))
+	return "github.com/cocoyamnut/crypto/aes: invalid key size " + strconv.Itoa(int(k))
 }
 
 // New creates and returns a new [cipher.Block] implementation.
@@ -97,13 +97,13 @@ func (c *Block) Encrypt(dst, src []byte) {
 	// AES-ECB is not approved in FIPS 140-3 mode.
 	fips140.RecordNonApproved()
 	if len(src) < BlockSize {
-		panic("crypto/aes: input not full block")
+		panic("github.com/cocoyamnut/crypto/aes: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/aes: output not full block")
+		panic("github.com/cocoyamnut/crypto/aes: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/aes: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/aes: invalid buffer overlap")
 	}
 	encryptBlock(c, dst, src)
 }
@@ -112,13 +112,13 @@ func (c *Block) Decrypt(dst, src []byte) {
 	// AES-ECB is not approved in FIPS 140-3 mode.
 	fips140.RecordNonApproved()
 	if len(src) < BlockSize {
-		panic("crypto/aes: input not full block")
+		panic("github.com/cocoyamnut/crypto/aes: input not full block")
 	}
 	if len(dst) < BlockSize {
-		panic("crypto/aes: output not full block")
+		panic("github.com/cocoyamnut/crypto/aes: output not full block")
 	}
 	if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-		panic("crypto/aes: invalid buffer overlap")
+		panic("github.com/cocoyamnut/crypto/aes: invalid buffer overlap")
 	}
 	decryptBlock(c, dst, src)
 }

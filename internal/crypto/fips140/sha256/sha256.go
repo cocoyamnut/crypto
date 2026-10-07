@@ -88,10 +88,10 @@ func (d *Digest) AppendBinary(b []byte) ([]byte, error) {
 
 func (d *Digest) UnmarshalBinary(b []byte) error {
 	if len(b) < len(magic224) || (d.is224 && string(b[:len(magic224)]) != magic224) || (!d.is224 && string(b[:len(magic256)]) != magic256) {
-		return errors.New("crypto/sha256: invalid hash state identifier")
+		return errors.New("github.com/cocoyamnut/crypto/sha256: invalid hash state identifier")
 	}
 	if len(b) != marshaledSize {
-		return errors.New("crypto/sha256: invalid hash state size")
+		return errors.New("github.com/cocoyamnut/crypto/sha256: invalid hash state size")
 	}
 	b = b[len(magic224):]
 	b, d.h[0] = consumeUint32(b)
