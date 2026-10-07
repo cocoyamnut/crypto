@@ -77,4 +77,3 @@ func (d *digest) checksumFinal() [Size]byte {
 	d.process(d.checksum[:])
 	return d.state
 }
-
