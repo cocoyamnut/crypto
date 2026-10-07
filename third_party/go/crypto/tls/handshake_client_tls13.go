@@ -7,14 +7,14 @@ package tls
 import (
 	"bytes"
 	"context"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/hkdf"
 	"github.com/cocoyamnut/crypto/hmac"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/tls13"
 	"github.com/cocoyamnut/crypto/rsa"
 	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"slices"
 	"time"
 )

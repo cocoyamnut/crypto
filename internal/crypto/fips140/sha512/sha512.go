@@ -10,7 +10,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140deps/byteorder"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 const (

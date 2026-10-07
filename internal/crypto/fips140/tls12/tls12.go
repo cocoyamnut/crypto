@@ -9,7 +9,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha256"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // PRF implements the TLS 1.2 pseudo-random function, as defined in RFC 5246,

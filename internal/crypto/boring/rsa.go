@@ -12,7 +12,7 @@ import (
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"runtime"
 	"strconv"
 	"unsafe"

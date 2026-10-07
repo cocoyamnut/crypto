@@ -8,7 +8,7 @@
 package wycheproof
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"encoding/hex"
 	"encoding/json"

@@ -8,7 +8,7 @@ package ssh
 
 import (
 	_ "github.com/cocoyamnut/crypto/internal/crypto/fips140/check"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 type Direction struct {

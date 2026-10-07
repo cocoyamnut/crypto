@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/aes"
 	"github.com/cocoyamnut/crypto/cipher"
 	"github.com/cocoyamnut/crypto/des"
@@ -18,7 +18,7 @@ import (
 	"github.com/cocoyamnut/crypto/sha256"
 	_ "github.com/cocoyamnut/crypto/sha512" // for crypto.SHA384
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"github.com/cocoyamnut/crypto/internal/cpu"
 	"runtime"
 	_ "unsafe" // for linkname

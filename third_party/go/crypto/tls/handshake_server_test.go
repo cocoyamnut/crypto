@@ -7,7 +7,7 @@ package tls
 import (
 	"bytes"
 	"context"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/ecdh"
 	"github.com/cocoyamnut/crypto/elliptic"
 	internalrand "github.com/cocoyamnut/crypto/internal/crypto/rand"

@@ -9,7 +9,7 @@ package boring
 import (
 	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/boring/sig"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 const available = false

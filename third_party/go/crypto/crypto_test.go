@@ -6,7 +6,7 @@ package crypto_test
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/rand"
 	"github.com/cocoyamnut/crypto/rsa"
 	"github.com/cocoyamnut/crypto/sha256"

@@ -6,7 +6,7 @@ package tls
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/ed25519"
 	"github.com/cocoyamnut/crypto/elliptic"
@@ -14,7 +14,7 @@ import (
 	"github.com/cocoyamnut/crypto/rsa"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"slices"
 )

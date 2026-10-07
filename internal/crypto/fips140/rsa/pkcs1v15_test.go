@@ -6,7 +6,7 @@ package rsa
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/x509/pkix"
 	"encoding/asn1"
 	"testing"

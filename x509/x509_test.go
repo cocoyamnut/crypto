@@ -6,7 +6,7 @@ package x509
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/dsa"
 	"github.com/cocoyamnut/crypto/ecdh"
 	"github.com/cocoyamnut/crypto/ecdsa"

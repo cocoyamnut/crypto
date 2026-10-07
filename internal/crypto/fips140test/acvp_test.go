@@ -50,7 +50,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"github.com/cocoyamnut/crypto/internal/testenv"
 	"io"
 	"math/big"

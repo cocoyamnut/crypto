@@ -9,7 +9,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha256"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // Enforced reports whether FIPS 140-only mode is enabled and enforced, in which non-approved

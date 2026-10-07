@@ -11,7 +11,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/drbg"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/nistec"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"math/bits"
 	"sync"

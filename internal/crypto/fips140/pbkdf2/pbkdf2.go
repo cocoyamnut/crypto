@@ -8,7 +8,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // divRoundUp divides x+y-1 by y, rounding up if the result is not whole.

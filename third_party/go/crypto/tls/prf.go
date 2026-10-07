@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/hmac"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/tls12"
 	"github.com/cocoyamnut/crypto/md5"
@@ -14,7 +14,7 @@ import (
 	"github.com/cocoyamnut/crypto/sha512"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 type prfFunc func(secret []byte, label string, seed []byte, keyLen int) []byte

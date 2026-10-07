@@ -18,7 +18,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"math/big"
 )
 

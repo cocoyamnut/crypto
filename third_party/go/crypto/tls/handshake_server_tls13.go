@@ -7,7 +7,7 @@ package tls
 import (
 	"bytes"
 	"context"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/hkdf"
 	"github.com/cocoyamnut/crypto/hmac"
 	"github.com/cocoyamnut/crypto/hpke"
@@ -17,7 +17,7 @@ import (
 	"github.com/cocoyamnut/crypto/x509"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"io"
 	"slices"

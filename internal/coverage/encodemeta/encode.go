@@ -12,7 +12,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"hash/fnv"
 	"github.com/cocoyamnut/crypto/internal/coverage"
 	"github.com/cocoyamnut/crypto/internal/coverage/stringtab"

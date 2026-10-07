@@ -6,7 +6,7 @@ package testhash
 
 import (
 	"bytes"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"math/rand"
 	"testing"

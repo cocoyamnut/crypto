@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"github.com/cocoyamnut/crypto/mldsa"

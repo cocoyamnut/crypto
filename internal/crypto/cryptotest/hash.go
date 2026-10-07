@@ -7,7 +7,7 @@ package cryptotest
 import (
 	"github.com/cocoyamnut/crypto/internal/crypto/boring"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"github.com/cocoyamnut/crypto/internal/testhash"
 	"io"
 	"math/rand"

@@ -22,7 +22,7 @@ package x509
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/ecdh"
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/ed25519"

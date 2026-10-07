@@ -5,7 +5,7 @@
 package fips140only_test
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/aes"
 	"github.com/cocoyamnut/crypto/cipher"
 	"github.com/cocoyamnut/crypto/des"

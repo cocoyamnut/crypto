@@ -7,7 +7,7 @@ package fips140hash
 import (
 	fsha3 "github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3"
 	"github.com/cocoyamnut/crypto/sha3"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	_ "unsafe"
 )
 

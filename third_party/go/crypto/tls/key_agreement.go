@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/ecdh"
 	"github.com/cocoyamnut/crypto/md5"
 	"github.com/cocoyamnut/crypto/rsa"

@@ -5,7 +5,7 @@
 package x509
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/dsa"
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/elliptic"

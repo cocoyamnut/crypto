@@ -5,7 +5,7 @@
 package fipstest
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/rand"
 	"fmt"

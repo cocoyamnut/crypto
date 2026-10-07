@@ -17,7 +17,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/subtle"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 )
 

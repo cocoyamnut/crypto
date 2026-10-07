@@ -9,7 +9,7 @@ package tls13
 import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hkdf"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140deps/byteorder"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // We don't set the service indicator in this package but we delegate that to

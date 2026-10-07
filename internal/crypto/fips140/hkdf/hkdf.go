@@ -7,7 +7,7 @@ package hkdf
 import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 func Extract[H hash.Hash](h func() H, secret, salt []byte) []byte {

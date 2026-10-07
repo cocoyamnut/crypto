@@ -28,7 +28,7 @@ type Info struct {
 var All = []Info{
 	{Name: "allowmultiplevcs", Package: "cmd/go"},
 	{Name: "containermaxprocs", Package: "runtime", Changed: 25, Old: "0"},
-	{Name: "cryptocustomrand", Package: "crypto", Changed: 26, Old: "1"},
+	{Name: "cryptocustomrand", Package: "github.com/cocoyamnut/crypto", Changed: 26, Old: "1"},
 	{Name: "dataindependenttiming", Package: "github.com/cocoyamnut/crypto/subtle", Opaque: true},
 	{Name: "decoratemappings", Package: "runtime", Opaque: true, Changed: 25, Old: "0"},
 	{Name: "embedfollowsymlinks", Package: "cmd/go"},

@@ -13,7 +13,7 @@ import (
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
 	"errors"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // key is zero padded to the block size of the hash function

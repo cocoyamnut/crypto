@@ -14,7 +14,7 @@ import (
 	"github.com/cocoyamnut/crypto/x509"
 	"errors"
 	"fmt"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"io"
 	"net"
 	"sync"

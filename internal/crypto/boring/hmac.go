@@ -11,7 +11,7 @@ import "C"
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 	"runtime"
 	"unsafe"
 )

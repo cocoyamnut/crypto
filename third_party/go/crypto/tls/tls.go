@@ -25,7 +25,7 @@ package tls
 
 import (
 	"context"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"github.com/cocoyamnut/crypto/ecdsa"
 	"github.com/cocoyamnut/crypto/ed25519"
 	"github.com/cocoyamnut/crypto/mldsa"

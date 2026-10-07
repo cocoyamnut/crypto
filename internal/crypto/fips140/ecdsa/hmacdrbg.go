@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hmac"
-	"hash"
+	"github.com/cocoyamnut/crypto/hash"
 )
 
 // hmacDRBG is an SP 800-90A Rev. 1 HMAC_DRBG.
