@@ -20,12 +20,12 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
-          cache: true
+          cache: false
 
       - name: Check formatting
         shell: bash
         run: |
-          files=$(gofmt -l .)
+          files=$(git ls-files '*.go' ':(exclude)internal/types/testdata/**' | xargs -r gofmt -l)
           if [[ -n "$files" ]]; then
             echo "These files are not gofmt-formatted:"
             echo "$files"
