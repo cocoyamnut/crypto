@@ -6,11 +6,11 @@ package tls
 
 import (
 	"crypto"
-	"crypto/ecdh"
-	"crypto/md5"
-	"crypto/rsa"
-	"crypto/sha1"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/md5"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/x509"
 	"errors"
 	"fmt"
 	"io"

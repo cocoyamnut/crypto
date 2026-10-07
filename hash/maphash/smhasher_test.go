@@ -8,8 +8,8 @@ package maphash
 
 import (
 	"fmt"
-	"internal/runtime/maps"
-	"internal/testenv"
+	"github.com/cocoyamnut/crypto/internal/runtime/maps"
+	"github.com/cocoyamnut/crypto/internal/testenv"
 	"math"
 	"math/rand"
 	"runtime"

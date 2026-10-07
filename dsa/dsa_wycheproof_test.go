@@ -4,14 +4,14 @@
 package dsa_test
 
 import (
-	"crypto/dsa"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/dsa"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/x509"
 	"math/big"
 	"testing"
 
-	"golang.org/x/crypto/cryptobyte"
-	"golang.org/x/crypto/cryptobyte/asn1"
+	"github.com/cocoyamnut/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte/asn1"
 )
 
 func TestDSAWycheproof(t *testing.T) {

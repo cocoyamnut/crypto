@@ -7,8 +7,8 @@
 package hpke
 
 import (
-	"crypto/aes"
-	"crypto/cipher"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
 )
 
 func newAESGCM(key []byte) (cipher.AEAD, error) {

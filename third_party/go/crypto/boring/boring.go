@@ -13,7 +13,7 @@
 // is satisfied, so that applications can tag files that use this package.
 package boring
 
-import "crypto/internal/boring"
+import "github.com/cocoyamnut/crypto/internal/crypto/boring"
 
 // Enabled reports whether BoringCrypto handles supported crypto operations.
 func Enabled() bool {

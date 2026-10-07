@@ -9,9 +9,9 @@ package tls
 import (
 	"bytes"
 	"context"
-	"crypto/cipher"
-	"crypto/subtle"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/subtle"
+	"github.com/cocoyamnut/crypto/x509"
 	"errors"
 	"fmt"
 	"hash"

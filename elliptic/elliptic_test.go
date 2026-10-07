@@ -6,7 +6,7 @@ package elliptic
 
 import (
 	"bytes"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"
 	"math/big"
 	"testing"

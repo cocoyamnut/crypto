@@ -6,7 +6,7 @@
 package fips140tls
 
 import (
-	"crypto/fips140"
+	"github.com/cocoyamnut/crypto/fips140"
 	"sync/atomic"
 )
 

@@ -13,7 +13,7 @@
 // [frozen]: https://go.dev/wiki/Frozen
 package curve25519
 
-import "crypto/ecdh"
+import "github.com/cocoyamnut/crypto/ecdh"
 
 // ScalarMult sets dst to the product scalar * point.
 //

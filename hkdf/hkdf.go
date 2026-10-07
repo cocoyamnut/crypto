@@ -11,9 +11,9 @@
 package hkdf
 
 import (
-	"crypto/internal/fips140/hkdf"
-	"crypto/internal/fips140hash"
-	"crypto/internal/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/hkdf"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140hash"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
 )

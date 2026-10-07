@@ -6,9 +6,9 @@ package cipher_test
 
 import (
 	"bytes"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"
 	"fmt"
 	"io"

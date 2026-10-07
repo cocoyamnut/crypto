@@ -17,14 +17,14 @@ package ed25519
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/fips140/ed25519"
-	"crypto/internal/fips140cache"
-	"crypto/internal/fips140only"
-	"crypto/internal/rand"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ed25519"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140cache"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
 	cryptorand "crypto/rand"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
-	"internal/godebug"
+	"github.com/cocoyamnut/crypto/internal/godebug"
 	"io"
 	"strconv"
 )

@@ -7,7 +7,7 @@ package crc64
 import (
 	"encoding"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/testhash"
+	"github.com/cocoyamnut/crypto/internal/testhash"
 	"io"
 	"testing"
 )

@@ -6,12 +6,12 @@ package rsa_test
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/rand"
-	"crypto/rsa"
-	"crypto/sha256"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/x509"
 	"encoding/hex"
 	"encoding/pem"
 	"fmt"

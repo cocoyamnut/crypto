@@ -5,12 +5,12 @@ package hmac_test
 
 import (
 	"bytes"
-	"crypto/hmac"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha3"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/hmac"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha3"
+	"github.com/cocoyamnut/crypto/sha512"
 	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )

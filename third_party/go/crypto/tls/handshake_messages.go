@@ -11,7 +11,7 @@ import (
 	"slices"
 	"strings"
 
-	"golang.org/x/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte"
 )
 
 // The marshalingFunction type is an adapter to allow the use of ordinary

@@ -7,9 +7,9 @@
 package rsa
 
 import (
-	"crypto/internal/boring"
-	"crypto/internal/boring/bbig"
-	"crypto/internal/boring/bcache"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring/bbig"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring/bcache"
 	"math/big"
 )
 

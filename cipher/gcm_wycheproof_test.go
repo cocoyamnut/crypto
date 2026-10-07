@@ -5,10 +5,10 @@ package cipher_test
 
 import (
 	"bytes"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/internal/cryptotest"
-	"crypto/internal/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
 	"testing"
 )
 

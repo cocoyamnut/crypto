@@ -6,8 +6,8 @@ package tls
 
 import (
 	"bytes"
-	"crypto/internal/fips140/tls13"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/tls13"
+	"github.com/cocoyamnut/crypto/sha256"
 	"encoding/hex"
 	"strings"
 	"testing"

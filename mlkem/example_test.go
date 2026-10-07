@@ -5,7 +5,7 @@
 package mlkem_test
 
 import (
-	"crypto/mlkem"
+	"github.com/cocoyamnut/crypto/mlkem"
 	"log"
 )
 

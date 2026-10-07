@@ -7,11 +7,11 @@
 package cipher_test
 
 import (
-	"crypto/cipher"
-	"crypto/internal/cryptotest"
-	"crypto/internal/fips140"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
 	fipsaes "crypto/internal/fips140/aes"
-	"crypto/internal/fips140/aes/gcm"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
 	"encoding/binary"
 	"math"
 	"testing"

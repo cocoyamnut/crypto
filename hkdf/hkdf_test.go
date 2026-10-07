@@ -6,12 +6,12 @@ package hkdf
 
 import (
 	"bytes"
-	"crypto/internal/boring"
-	"crypto/internal/fips140"
-	"crypto/md5"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
+	"github.com/cocoyamnut/crypto/md5"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha512"
 	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )

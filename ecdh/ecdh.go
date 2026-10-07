@@ -8,9 +8,9 @@ package ecdh
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/boring"
-	"crypto/internal/fips140/ecdh"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdh"
+	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"io"
 )

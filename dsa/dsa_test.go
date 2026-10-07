@@ -5,7 +5,7 @@
 package dsa
 
 import (
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/rand"
 	"math/big"
 	"testing"
 )

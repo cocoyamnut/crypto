@@ -13,7 +13,7 @@ package mlkem
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/fips140/mlkem"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
 )
 
 const (

@@ -5,8 +5,8 @@
 package ed25519_test
 
 import (
-	"crypto/ed25519"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"encoding/hex"
 	"encoding/json"
 	"os"

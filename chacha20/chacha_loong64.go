@@ -6,7 +6,7 @@
 
 package chacha20
 
-import "golang.org/x/sys/cpu"
+import "github.com/cocoyamnut/crypto/internal/xsys/cpu"
 
 const bufSize = 256
 

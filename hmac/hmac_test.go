@@ -5,14 +5,14 @@
 package hmac
 
 import (
-	"crypto/internal/boring"
-	"crypto/internal/cryptotest"
-	"crypto/internal/fips140hash"
-	"crypto/md5"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha3"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140hash"
+	"github.com/cocoyamnut/crypto/md5"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha3"
+	"github.com/cocoyamnut/crypto/sha512"
 	"errors"
 	"fmt"
 	"github.com/cocoyamnut/crypto/hash"

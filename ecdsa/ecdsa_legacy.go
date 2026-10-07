@@ -5,15 +5,15 @@
 package ecdsa
 
 import (
-	"crypto/elliptic"
-	"crypto/internal/fips140only"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"errors"
 	"io"
 	"math/big"
 	"math/rand/v2"
 
-	"golang.org/x/crypto/cryptobyte"
-	"golang.org/x/crypto/cryptobyte/asn1"
+	"github.com/cocoyamnut/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte/asn1"
 )
 
 // This file contains a math/big implementation of ECDSA that is only used for

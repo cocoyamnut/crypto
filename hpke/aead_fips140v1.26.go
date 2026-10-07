@@ -7,9 +7,9 @@
 package hpke
 
 import (
-	"crypto/cipher"
-	"crypto/internal/fips140/aes"
-	"crypto/internal/fips140/aes/gcm"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
 )
 
 func newAESGCM(key []byte) (cipher.AEAD, error) {

@@ -6,11 +6,11 @@ package tls
 
 import (
 	"crypto"
-	"crypto/fips140"
-	"crypto/internal/cryptotest"
-	"crypto/mldsa"
-	"crypto/tls/internal/fips140tls"
-	"internal/testenv"
+	"github.com/cocoyamnut/crypto/fips140"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/mldsa"
+	"github.com/cocoyamnut/crypto/tls/internal/fips140tls"
+	"github.com/cocoyamnut/crypto/internal/testenv"
 	"strconv"
 	"testing"
 )

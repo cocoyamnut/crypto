@@ -10,14 +10,14 @@ import (
 	"compress/bzip2"
 	"github.com/cocoyamnut/crypto"
 	. "crypto/ecdsa"
-	"crypto/elliptic"
-	"crypto/internal/cryptotest"
-	"crypto/internal/fips140/ecdsa"
-	"crypto/rand"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdsa"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha512"
+	"github.com/cocoyamnut/crypto/x509"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
@@ -28,8 +28,8 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/crypto/cryptobyte"
-	"golang.org/x/crypto/cryptobyte/asn1"
+	"github.com/cocoyamnut/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte/asn1"
 )
 
 func testAllCurves(t *testing.T, f func(*testing.T, elliptic.Curve)) {

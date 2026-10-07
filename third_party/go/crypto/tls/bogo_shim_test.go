@@ -6,8 +6,8 @@ package tls
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/x509"
 	"encoding/base64"
 	"encoding/json"
 	"encoding/pem"
@@ -15,8 +15,8 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
-	"internal/byteorder"
-	"internal/testenv"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/testenv"
 	"io"
 	"log"
 	"maps"
@@ -30,7 +30,7 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte"
 )
 
 // boringsslModVer is the version of BoringSSL that we test against.

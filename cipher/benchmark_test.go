@@ -5,8 +5,8 @@
 package cipher_test
 
 import (
-	"crypto/aes"
-	"crypto/cipher"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
 	"strconv"
 	"testing"
 )

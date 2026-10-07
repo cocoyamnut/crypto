@@ -5,13 +5,13 @@
 package cipher
 
 import (
-	"crypto/internal/fips140/aes"
-	"crypto/internal/fips140/aes/gcm"
-	"crypto/internal/fips140/alias"
-	"crypto/internal/fips140only"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/alias"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 const (

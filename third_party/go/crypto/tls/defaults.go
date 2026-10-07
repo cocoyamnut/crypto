@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"internal/godebug"
+	"github.com/cocoyamnut/crypto/internal/godebug"
 	"slices"
 	_ "unsafe" // for linkname
 )

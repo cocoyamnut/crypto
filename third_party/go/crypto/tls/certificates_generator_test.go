@@ -8,19 +8,19 @@ package tls
 
 import (
 	"bytes"
-	"crypto/ecdsa"
-	"crypto/ed25519"
-	"crypto/elliptic"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/elliptic"
 	icryptotest "crypto/internal/cryptotest"
-	"crypto/mldsa"
-	"crypto/rand"
-	"crypto/rsa"
-	"crypto/x509"
-	"crypto/x509/pkix"
+	"github.com/cocoyamnut/crypto/mldsa"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
+	"github.com/cocoyamnut/crypto/x509/pkix"
 	"encoding/pem"
 	"flag"
 	"fmt"
-	"internal/testenv"
+	"github.com/cocoyamnut/crypto/internal/testenv"
 	"math/big"
 	"os"
 	"strings"
@@ -393,11 +393,11 @@ func TestGenerateCertificates(t *testing.T) {
 package tls
 
 import (
-	"crypto/ecdsa"
-	"crypto/ed25519"
-	"crypto/mldsa"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/mldsa"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 	"encoding/pem"
 )
 

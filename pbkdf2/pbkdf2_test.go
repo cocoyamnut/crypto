@@ -6,11 +6,11 @@ package pbkdf2_test
 
 import (
 	"bytes"
-	"crypto/internal/boring"
-	"crypto/internal/fips140"
-	"crypto/pbkdf2"
-	"crypto/sha1"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140"
+	"github.com/cocoyamnut/crypto/pbkdf2"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
 	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )

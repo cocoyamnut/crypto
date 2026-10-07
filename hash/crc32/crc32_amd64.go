@@ -9,7 +9,7 @@
 package crc32
 
 import (
-	"internal/cpu"
+	"github.com/cocoyamnut/crypto/internal/cpu"
 	"unsafe"
 )
 

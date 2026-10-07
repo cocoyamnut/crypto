@@ -6,11 +6,11 @@ package pbkdf2_test
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/pbkdf2"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/pbkdf2"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha512"
 	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )

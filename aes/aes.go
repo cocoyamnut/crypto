@@ -14,9 +14,9 @@
 package aes
 
 import (
-	"crypto/cipher"
-	"crypto/internal/boring"
-	"crypto/internal/fips140/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes"
 	"strconv"
 )
 

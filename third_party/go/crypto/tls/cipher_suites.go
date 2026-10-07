@@ -6,24 +6,24 @@ package tls
 
 import (
 	"crypto"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/des"
-	"crypto/hmac"
-	"crypto/internal/boring"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/des"
+	"github.com/cocoyamnut/crypto/hmac"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
 	fipsaes "crypto/internal/fips140/aes"
-	"crypto/internal/fips140/aes/gcm"
-	"crypto/rc4"
-	"crypto/sha1"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/aes/gcm"
+	"github.com/cocoyamnut/crypto/rc4"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
 	_ "crypto/sha512" // for crypto.SHA384
 	"fmt"
 	"hash"
-	"internal/cpu"
+	"github.com/cocoyamnut/crypto/internal/cpu"
 	"runtime"
 	_ "unsafe" // for linkname
 
-	"golang.org/x/crypto/chacha20poly1305"
+	"github.com/cocoyamnut/crypto/chacha20poly1305"
 )
 
 // CipherSuite is a TLS cipher suite. Note that most functions in this package

@@ -10,7 +10,7 @@ package crc64
 import (
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"sync"
 )
 

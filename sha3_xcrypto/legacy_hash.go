@@ -9,13 +9,13 @@ package sha3
 // All other functions in this package are wrappers around crypto/sha3.
 
 import (
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/subtle"
 	"encoding/binary"
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
 	"unsafe"
 
-	"golang.org/x/sys/cpu"
+	"github.com/cocoyamnut/crypto/internal/xsys/cpu"
 )
 
 const (

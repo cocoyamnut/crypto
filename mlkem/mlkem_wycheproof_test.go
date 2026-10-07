@@ -6,10 +6,10 @@ package mlkem_test
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/internal/fips140/mlkem"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
 	. "crypto/mlkem"
-	"crypto/mlkem/mlkemtest"
+	"github.com/cocoyamnut/crypto/mlkem/mlkemtest"
 	"testing"
 )
 

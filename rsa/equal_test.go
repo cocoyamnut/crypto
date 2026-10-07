@@ -6,8 +6,8 @@ package rsa_test
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 	"testing"
 )
 

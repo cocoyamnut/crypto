@@ -5,16 +5,16 @@
 package tls
 
 import (
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/hmac"
-	"crypto/sha256"
-	"crypto/subtle"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/hmac"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/subtle"
+	"github.com/cocoyamnut/crypto/x509"
 	"errors"
 	"io"
 
-	"golang.org/x/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte"
 )
 
 // A SessionState is a resumable session.

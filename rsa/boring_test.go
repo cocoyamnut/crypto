@@ -11,7 +11,7 @@ package rsa
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding/asn1"
 	"encoding/hex"
 	"math/big"

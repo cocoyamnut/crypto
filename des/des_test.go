@@ -6,9 +6,9 @@ package des_test
 
 import (
 	"bytes"
-	"crypto/cipher"
-	"crypto/des"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/des"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"testing"
 )
 

@@ -7,9 +7,9 @@
 package cipher
 
 import (
-	"crypto/internal/fips140/alias"
-	"crypto/internal/fips140only"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/alias"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/subtle"
 )
 
 type cfb struct {

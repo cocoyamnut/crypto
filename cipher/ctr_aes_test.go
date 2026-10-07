@@ -12,10 +12,10 @@ package cipher_test
 
 import (
 	"bytes"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/internal/boring"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	fipsaes "crypto/internal/fips140/aes"
 	"encoding/binary"
 	"encoding/hex"

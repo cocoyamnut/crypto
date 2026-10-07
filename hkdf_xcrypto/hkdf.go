@@ -11,8 +11,8 @@
 package hkdf
 
 import (
-	"crypto/hkdf"
-	"crypto/hmac"
+	"github.com/cocoyamnut/crypto/hkdf"
+	"github.com/cocoyamnut/crypto/hmac"
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
 	"io"

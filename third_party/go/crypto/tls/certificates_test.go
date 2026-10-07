@@ -4,11 +4,11 @@
 package tls
 
 import (
-	"crypto/ecdsa"
-	"crypto/ed25519"
-	"crypto/mldsa"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/mldsa"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 	"encoding/pem"
 )
 

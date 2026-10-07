@@ -5,8 +5,8 @@
 package subtle
 
 import (
-	"internal/cpu"
-	"internal/runtime/sys"
+	"github.com/cocoyamnut/crypto/internal/cpu"
+	"github.com/cocoyamnut/crypto/internal/runtime/sys"
 	"testing"
 )
 

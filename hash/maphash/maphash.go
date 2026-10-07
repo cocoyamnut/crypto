@@ -18,8 +18,8 @@ package maphash
 
 import (
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/abi"
-	"internal/runtime/maps"
+	"github.com/cocoyamnut/crypto/internal/abi"
+	"github.com/cocoyamnut/crypto/internal/runtime/maps"
 	"unsafe"
 )
 

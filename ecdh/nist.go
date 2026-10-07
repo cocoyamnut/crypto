@@ -6,10 +6,10 @@ package ecdh
 
 import (
 	"bytes"
-	"crypto/internal/boring"
-	"crypto/internal/fips140/ecdh"
-	"crypto/internal/fips140only"
-	"crypto/internal/rand"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdh"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
 	"errors"
 	"io"
 )

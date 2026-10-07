@@ -6,7 +6,7 @@ package hash_test
 
 import (
 	"bytes"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha256"
 	"encoding"
 	"fmt"
 	"log"

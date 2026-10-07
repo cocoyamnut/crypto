@@ -7,14 +7,14 @@ package hpke
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
-	"crypto/ecdh"
-	"crypto/fips140"
-	"crypto/internal/fips140/drbg"
-	"crypto/internal/rand"
-	"crypto/mlkem"
-	"crypto/sha3"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/fips140"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/drbg"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
+	"github.com/cocoyamnut/crypto/mlkem"
+	"github.com/cocoyamnut/crypto/sha3"
 	"errors"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 var mlkem768X25519 = &hybridKEM{

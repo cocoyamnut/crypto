@@ -5,7 +5,7 @@
 package tls
 
 import (
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/x509"
 	"runtime"
 	"sync"
 	"weak"

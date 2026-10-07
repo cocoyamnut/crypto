@@ -6,7 +6,7 @@
 
 package blake2s
 
-import "golang.org/x/sys/cpu"
+import "github.com/cocoyamnut/crypto/internal/xsys/cpu"
 
 var (
 	useSSE4  = cpu.X86.HasSSE41

@@ -7,13 +7,13 @@
 package tls
 
 import (
-	"crypto/ecdsa"
-	"crypto/ed25519"
-	"crypto/elliptic"
-	"crypto/internal/boring"
-	"crypto/mldsa"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/mldsa"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 )
 
 // These FIPS 140-3 policies allow anything approved by SP 800-140C

@@ -5,7 +5,7 @@
 package des
 
 import (
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"sync"
 )
 

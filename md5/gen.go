@@ -222,7 +222,7 @@ var program = `// Copyright 2013 The Go Authors. All rights reserved.
 package md5
 
 import (
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"math/bits"
 )
 

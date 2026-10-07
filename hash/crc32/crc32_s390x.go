@@ -4,7 +4,7 @@
 
 package crc32
 
-import "internal/cpu"
+import "github.com/cocoyamnut/crypto/internal/cpu"
 
 const (
 	vxMinLen    = 64

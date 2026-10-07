@@ -6,7 +6,7 @@
 
 package blake2b
 
-import "golang.org/x/sys/cpu"
+import "github.com/cocoyamnut/crypto/internal/xsys/cpu"
 
 //go:noescape
 func hashBlocksVX(h *[8]uint64, c *[2]uint64, flag uint64, blocks []byte)

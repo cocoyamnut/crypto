@@ -5,11 +5,11 @@
 package hpke
 
 import (
-	"crypto/cipher"
+	"github.com/cocoyamnut/crypto/cipher"
 	"errors"
 	"fmt"
 
-	"golang.org/x/crypto/chacha20poly1305"
+	"github.com/cocoyamnut/crypto/chacha20poly1305"
 )
 
 // The AEAD is one of the three components of an HPKE ciphersuite, implementing

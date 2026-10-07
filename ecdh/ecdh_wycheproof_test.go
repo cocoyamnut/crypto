@@ -5,10 +5,10 @@ package ecdh_test
 
 import (
 	"bytes"
-	"crypto/ecdh"
-	"crypto/ecdsa"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/x509"
 	"fmt"
 	"testing"
 )

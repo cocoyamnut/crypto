@@ -7,13 +7,13 @@ package ecdh_test
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
-	"crypto/cipher"
-	"crypto/ecdh"
-	"crypto/rand"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"internal/testenv"
+	"github.com/cocoyamnut/crypto/internal/testenv"
 	"io"
 	"os"
 	"path/filepath"
@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/crypto/chacha20"
+	"github.com/cocoyamnut/crypto/chacha20"
 )
 
 // Check that PublicKey and PrivateKey implement the interfaces documented in
@@ -425,8 +425,8 @@ var zeroReader = zr{}
 
 const linkerTestProgram = `
 package main
-import "crypto/ecdh"
-import "crypto/rand"
+import "github.com/cocoyamnut/crypto/ecdh"
+import "github.com/cocoyamnut/crypto/rand"
 func main() {
 	// Use P-256, since that's what the always-enabled CAST uses.
 	curve := ecdh.P256()

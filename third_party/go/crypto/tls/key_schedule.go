@@ -6,11 +6,11 @@ package tls
 
 import (
 	"crypto"
-	"crypto/ecdh"
-	"crypto/fips140"
-	"crypto/hmac"
-	"crypto/internal/fips140/tls13"
-	"crypto/mlkem"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/fips140"
+	"github.com/cocoyamnut/crypto/hmac"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/tls13"
+	"github.com/cocoyamnut/crypto/mlkem"
 	"errors"
 	"hash"
 	"io"

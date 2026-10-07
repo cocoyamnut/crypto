@@ -6,13 +6,13 @@ package tls
 
 import (
 	"bytes"
-	"crypto/hpke"
+	"github.com/cocoyamnut/crypto/hpke"
 	"errors"
 	"fmt"
 	"net/netip"
 	"strings"
 
-	"golang.org/x/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte"
 )
 
 type echCipher struct {

@@ -7,10 +7,10 @@
 package tls
 
 import (
-	"crypto/ecdsa"
-	"crypto/elliptic"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 )
 
 // These Go+BoringCrypto policies mostly match BoringSSL's

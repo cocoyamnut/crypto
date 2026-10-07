@@ -6,12 +6,12 @@ package tls
 
 import (
 	"crypto"
-	"crypto/hmac"
-	"crypto/internal/fips140/tls12"
-	"crypto/md5"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/hmac"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/tls12"
+	"github.com/cocoyamnut/crypto/md5"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha512"
 	"errors"
 	"fmt"
 	"hash"

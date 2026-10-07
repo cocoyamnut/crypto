@@ -6,7 +6,7 @@ package chacha20poly1305
 
 import (
 	"bytes"
-	"crypto/cipher"
+	"github.com/cocoyamnut/crypto/cipher"
 	cryptorand "crypto/rand"
 	"encoding/hex"
 	"fmt"

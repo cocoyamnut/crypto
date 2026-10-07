@@ -6,10 +6,10 @@ package hpke
 
 import (
 	"bytes"
-	"crypto/ecdh"
-	"crypto/mlkem"
-	"crypto/mlkem/mlkemtest"
-	"crypto/sha3"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/mlkem"
+	"github.com/cocoyamnut/crypto/mlkem/mlkemtest"
+	"github.com/cocoyamnut/crypto/sha3"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"

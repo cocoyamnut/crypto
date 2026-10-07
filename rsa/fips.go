@@ -6,11 +6,11 @@ package rsa
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/boring"
-	"crypto/internal/fips140/rsa"
-	"crypto/internal/fips140hash"
-	"crypto/internal/fips140only"
-	"crypto/internal/rand"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/rsa"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140hash"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
 	"io"

@@ -8,7 +8,7 @@ import (
 	"encoding"
 	"fmt"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/testhash"
+	"github.com/cocoyamnut/crypto/internal/testhash"
 	"io"
 	"math/rand"
 	"strings"

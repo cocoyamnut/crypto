@@ -8,14 +8,14 @@ package bcrypt
 
 // The code is a port of Provos and Mazières's C implementation.
 import (
-	"crypto/rand"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"fmt"
 	"io"
 	"strconv"
 
-	"golang.org/x/crypto/blowfish"
+	"github.com/cocoyamnut/crypto/blowfish"
 )
 
 const (

@@ -5,14 +5,14 @@
 package hpke
 
 import (
-	"crypto/hkdf"
-	"crypto/sha256"
-	"crypto/sha3"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/hkdf"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha3"
+	"github.com/cocoyamnut/crypto/sha512"
 	"errors"
 	"fmt"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 // The KDF is one of the three components of an HPKE ciphersuite, implementing

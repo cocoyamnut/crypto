@@ -9,7 +9,7 @@ import (
 	"encoding"
 	"encoding/binary"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/testhash"
+	"github.com/cocoyamnut/crypto/internal/testhash"
 	"io"
 	"testing"
 )

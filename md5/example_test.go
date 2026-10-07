@@ -5,7 +5,7 @@
 package md5_test
 
 import (
-	"crypto/md5"
+	"github.com/cocoyamnut/crypto/md5"
 	"fmt"
 	"io"
 	"log"

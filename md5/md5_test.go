@@ -6,8 +6,8 @@ package md5
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding"
 	"fmt"
 	"github.com/cocoyamnut/crypto/hash"

@@ -12,10 +12,10 @@ package cipher_test
 
 import (
 	"bytes"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/des"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/des"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"fmt"
 	"testing"
 )

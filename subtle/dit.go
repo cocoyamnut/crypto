@@ -5,7 +5,7 @@
 package subtle
 
 import (
-	"internal/runtime/sys"
+	"github.com/cocoyamnut/crypto/internal/runtime/sys"
 	_ "unsafe"
 )
 

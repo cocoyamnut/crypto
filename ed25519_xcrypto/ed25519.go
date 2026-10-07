@@ -18,7 +18,7 @@
 package ed25519
 
 import (
-	"crypto/ed25519"
+	"github.com/cocoyamnut/crypto/ed25519"
 	"io"
 )
 

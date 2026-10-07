@@ -7,7 +7,7 @@
 package boring_test
 
 import (
-	"crypto/boring"
+	"github.com/cocoyamnut/crypto/boring"
 	"runtime"
 	"testing"
 )

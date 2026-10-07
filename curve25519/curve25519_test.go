@@ -6,11 +6,11 @@ package curve25519_test
 
 import (
 	"bytes"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"
 	"testing"
 
-	"golang.org/x/crypto/curve25519"
+	"github.com/cocoyamnut/crypto/curve25519"
 )
 
 const expectedHex = "89161fde887b2b53de549af483940106ecc114d6982daa98256de23bdf77661a"

@@ -9,10 +9,10 @@ package mldsa_test
 import (
 	"bytes"
 	"github.com/cocoyamnut/crypto"
-	"crypto/fips140"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/fips140"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	. "crypto/mldsa"
-	"crypto/sha3"
+	"github.com/cocoyamnut/crypto/sha3"
 	"encoding/hex"
 	"flag"
 	"math/rand/v2"

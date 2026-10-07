@@ -6,8 +6,8 @@ package rc4
 
 import (
 	"bytes"
-	"crypto/cipher"
-	"crypto/internal/cryptotest"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
 	"fmt"
 	"testing"
 )

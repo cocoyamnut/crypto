@@ -5,10 +5,10 @@
 package ecdsa_test
 
 import (
-	"crypto/ecdsa"
-	"crypto/elliptic"
-	"crypto/rand"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/sha256"
 	"fmt"
 )
 

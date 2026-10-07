@@ -7,7 +7,7 @@
 package md5
 
 import (
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"math/bits"
 )
 

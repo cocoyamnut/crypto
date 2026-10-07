@@ -19,8 +19,8 @@ package fipsonly
 // new source file and not modifying any existing source files.
 
 import (
-	"crypto/internal/boring/sig"
-	"crypto/tls/internal/fips140tls"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring/sig"
+	"github.com/cocoyamnut/crypto/tls/internal/fips140tls"
 )
 
 func init() {

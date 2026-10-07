@@ -5,10 +5,10 @@
 package hpke
 
 import (
-	"crypto/ecdh"
-	"crypto/internal/rand"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
 	"errors"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 	"slices"
 )
 

@@ -5,11 +5,11 @@ package hkdf_test
 
 import (
 	"bytes"
-	"crypto/hkdf"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
+	"github.com/cocoyamnut/crypto/hkdf"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/sha1"
+	"github.com/cocoyamnut/crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha512"
 	"github.com/cocoyamnut/crypto/hash"
 	"testing"
 )

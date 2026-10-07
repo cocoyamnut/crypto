@@ -6,12 +6,12 @@ package mlkem_test
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest"
-	"crypto/internal/fips140/mlkem"
-	"crypto/internal/fips140/sha3"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/mlkem"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha3"
 	. "crypto/mlkem"
-	"crypto/mlkem/mlkemtest"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/mlkem/mlkemtest"
+	"github.com/cocoyamnut/crypto/rand"
 	"encoding/hex"
 	"flag"
 	"testing"

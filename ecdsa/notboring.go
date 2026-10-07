@@ -6,7 +6,7 @@
 
 package ecdsa
 
-import "crypto/internal/boring"
+import "github.com/cocoyamnut/crypto/internal/crypto/boring"
 
 func boringPublicKey(*PublicKey) (*boring.PublicKeyECDSA, error) {
 	panic("boringcrypto: not available")

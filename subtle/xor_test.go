@@ -6,8 +6,8 @@ package subtle_test
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest"
-	"crypto/rand"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest"
+	"github.com/cocoyamnut/crypto/rand"
 	. "crypto/subtle"
 	"fmt"
 	"testing"

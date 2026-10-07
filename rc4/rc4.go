@@ -10,8 +10,8 @@
 package rc4
 
 import (
-	"crypto/internal/fips140/alias"
-	"crypto/internal/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/alias"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"errors"
 	"strconv"
 )

@@ -10,11 +10,11 @@ package sha1
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/boring"
-	"crypto/internal/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 func init() {

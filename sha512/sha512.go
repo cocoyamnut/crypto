@@ -12,8 +12,8 @@ package sha512
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/internal/boring"
-	"crypto/internal/fips140/sha512"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/sha512"
 	"github.com/cocoyamnut/crypto/hash"
 )
 

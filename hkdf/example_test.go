@@ -6,9 +6,9 @@ package hkdf_test
 
 import (
 	"bytes"
-	"crypto/hkdf"
-	"crypto/rand"
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/hkdf"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/sha256"
 	"fmt"
 	"strconv"
 )

@@ -18,24 +18,24 @@ package ecdsa
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/ecdh"
-	"crypto/elliptic"
-	"crypto/internal/boring"
-	"crypto/internal/boring/bbig"
-	"crypto/internal/fips140/ecdsa"
-	"crypto/internal/fips140/nistec"
-	"crypto/internal/fips140cache"
-	"crypto/internal/fips140hash"
-	"crypto/internal/fips140only"
-	"crypto/internal/rand"
-	"crypto/sha512"
-	"crypto/subtle"
+	"github.com/cocoyamnut/crypto/ecdh"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring"
+	"github.com/cocoyamnut/crypto/internal/crypto/boring/bbig"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/ecdsa"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/nistec"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140cache"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140hash"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140only"
+	"github.com/cocoyamnut/crypto/internal/crypto/rand"
+	"github.com/cocoyamnut/crypto/sha512"
+	"github.com/cocoyamnut/crypto/subtle"
 	"errors"
 	"io"
 	"math/big"
 
-	"golang.org/x/crypto/cryptobyte"
-	"golang.org/x/crypto/cryptobyte/asn1"
+	"github.com/cocoyamnut/crypto/cryptobyte"
+	"github.com/cocoyamnut/crypto/cryptobyte/asn1"
 )
 
 // PublicKey represents an ECDSA public key.

@@ -4,9 +4,9 @@
 package ed25519_test
 
 import (
-	"crypto/ed25519"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ed25519"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/x509"
 	"fmt"
 	"testing"
 )

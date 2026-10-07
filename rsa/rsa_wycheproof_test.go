@@ -5,9 +5,9 @@ package rsa_test
 
 import (
 	"bytes"
-	"crypto/internal/cryptotest/wycheproof"
-	"crypto/rsa"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/internal/crypto/cryptotest/wycheproof"
+	"github.com/cocoyamnut/crypto/rsa"
+	"github.com/cocoyamnut/crypto/x509"
 	"fmt"
 	"slices"
 	"testing"

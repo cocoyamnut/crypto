@@ -5,9 +5,9 @@
 package crypto_test
 
 import (
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/rc4"
+	"github.com/cocoyamnut/crypto/aes"
+	"github.com/cocoyamnut/crypto/cipher"
+	"github.com/cocoyamnut/crypto/rc4"
 	"testing"
 )
 

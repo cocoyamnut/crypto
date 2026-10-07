@@ -6,10 +6,10 @@ package ecdsa_test
 
 import (
 	"github.com/cocoyamnut/crypto"
-	"crypto/ecdsa"
-	"crypto/elliptic"
-	"crypto/rand"
-	"crypto/x509"
+	"github.com/cocoyamnut/crypto/ecdsa"
+	"github.com/cocoyamnut/crypto/elliptic"
+	"github.com/cocoyamnut/crypto/rand"
+	"github.com/cocoyamnut/crypto/x509"
 	"testing"
 )
 

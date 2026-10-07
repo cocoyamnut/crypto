@@ -7,8 +7,8 @@
 package subtle
 
 import (
-	"crypto/internal/constanttime"
-	"crypto/internal/fips140/subtle"
+	"github.com/cocoyamnut/crypto/internal/crypto/constanttime"
+	"github.com/cocoyamnut/crypto/internal/crypto/fips140/subtle"
 )
 
 // These functions are forwarded to crypto/internal/constanttime for intrinsified

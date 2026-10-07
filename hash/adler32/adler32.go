@@ -16,7 +16,7 @@ package adler32
 import (
 	"errors"
 	"github.com/cocoyamnut/crypto/hash"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 const (

@@ -9,9 +9,9 @@
 package hpke
 
 import (
-	"crypto/cipher"
+	"github.com/cocoyamnut/crypto/cipher"
 	"errors"
-	"internal/byteorder"
+	"github.com/cocoyamnut/crypto/internal/byteorder"
 )
 
 type context struct {

@@ -5,7 +5,7 @@
 package sha256_test
 
 import (
-	"crypto/sha256"
+	"github.com/cocoyamnut/crypto/sha256"
 	"fmt"
 	"io"
 	"log"
