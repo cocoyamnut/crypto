@@ -2,6 +2,8 @@
 
 `github.com/cocoyamnut/crypto/md2` is a small, standard-library-style Go implementation of the MD2 message-digest algorithm from [RFC 1319](https://www.rfc-editor.org/rfc/rfc1319).
 
+The package is organized like the Go MD4/MD5 implementations: `md2.go` contains the public API and streaming state, while `md2block.go` contains the block transformation.
+
 MD2 is obsolete and cryptographically broken. Use this package only for legacy compatibility, protocol interoperability, or historical data.
 
 ## API
