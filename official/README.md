@@ -1,6 +1,6 @@
 # Official Go cryptography index
 
-This repository collects personal implementations and compatibility packages. Official Go implementations remain the source of truth and are used directly where available; they are not copied into this module.
+This repository collects personal implementations and compatibility packages. Official Go source snapshots are included under [`../third_party`](../third_party) for personal maintenance; the upstream source layout is preserved.
 
 ## Standard library (`crypto/...`)
 
@@ -50,4 +50,4 @@ The `md2` package in this repository fills a gap not provided by either official
 import "github.com/cocoyamnut/crypto/md2"
 ```
 
-For official implementations, import the upstream package directly so security fixes and architecture-specific improvements can be received normally.
+The `third_party` snapshots are not automatically importable as replacements for upstream packages. Each algorithm should be adapted into this module only after its imports, tests, licensing, and behavior have been reviewed.
