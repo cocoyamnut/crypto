@@ -28,6 +28,7 @@ jobs:
           packages=$(find . -name '*.go' \
             -not -path './internal/*' \
             -not -path './hash/*' \
+            -not -path './x509/*' \
             -not -path './third_party/*' \
             -not -path '*/_asm/*' \
             -not -path '*/testdata/*' \
