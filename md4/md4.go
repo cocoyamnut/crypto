@@ -10,8 +10,9 @@
 package md4
 
 import (
-	"crypto"
 	"hash"
+
+	"github.com/cocoyamnut/crypto"
 )
 
 func init() {

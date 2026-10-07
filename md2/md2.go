@@ -4,7 +4,11 @@
 // cryptographically broken and must not be used for new security designs.
 package md2
 
-import "hash"
+import (
+	"hash"
+
+	"github.com/cocoyamnut/crypto"
+)
 
 const (
 	// Size is the length of an MD2 checksum in bytes.
@@ -15,6 +19,10 @@ const (
 
 var _ hash.Hash = (*digest)(nil)
 
+func init() {
+	crypto.RegisterHash(crypto.MD2, New)
+}
+
 type digest struct {
 	state    [Size]byte
 	checksum [Size]byte
@@ -23,7 +31,11 @@ type digest struct {
 }
 
 // New returns a new MD2 hash.Hash.
-func New() hash.Hash { return new(digest) }
+func New() hash.Hash {
+	d := new(digest)
+	d.Reset()
+	return d
+}
 
 // Sum returns the MD2 checksum of data.
 func Sum(data []byte) [Size]byte {

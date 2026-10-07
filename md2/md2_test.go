@@ -3,6 +3,8 @@ package md2
 import (
 	"encoding/hex"
 	"testing"
+
+	"github.com/cocoyamnut/crypto"
 )
 
 func TestRFC1319Vectors(t *testing.T) {
@@ -60,4 +62,13 @@ func TestReset(t *testing.T) {
 func TestAPIConstants(t *testing.T) {
 	h := New()
 	if h.Size() != Size || h.BlockSize() != BlockSize { t.Fatal("unexpected hash dimensions") }
+}
+
+func TestCryptoRegistration(t *testing.T) {
+	if !crypto.MD2.Available() {
+		t.Fatal("MD2 is not registered with the local crypto package")
+	}
+	if got := crypto.MD2.New().Size(); got != Size {
+		t.Fatalf("registered MD2 size = %d, want %d", got, Size)
+	}
 }

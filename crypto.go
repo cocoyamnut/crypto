@@ -22,6 +22,8 @@ func (h Hash) HashFunc() Hash {
 
 func (h Hash) String() string {
 	switch h {
+	case MD2:
+		return "MD2"
 	case MD4:
 		return "MD4"
 	case MD5:
@@ -68,7 +70,8 @@ func (h Hash) String() string {
 }
 
 const (
-	MD4         Hash = 1 + iota // import golang.org/x/crypto/md4
+	MD2         Hash = 1 + iota // import github.com/cocoyamnut/crypto/md2
+	MD4                         // import github.com/cocoyamnut/crypto/md4
 	MD5                         // import crypto/md5
 	SHA1                        // import crypto/sha1
 	SHA224                      // import crypto/sha256
@@ -99,6 +102,7 @@ const (
 )
 
 var digestSizes = []uint8{
+	MD2:         16,
 	MD4:         16,
 	MD5:         16,
 	SHA1:        20,
