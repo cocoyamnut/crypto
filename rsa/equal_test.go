@@ -5,7 +5,7 @@
 package rsa_test
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/rsa"
 	"crypto/x509"
 	"testing"

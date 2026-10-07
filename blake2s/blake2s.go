@@ -19,7 +19,7 @@
 package blake2s
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"encoding/binary"
 	"errors"
 	"hash"

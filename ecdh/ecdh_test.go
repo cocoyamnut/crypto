@@ -6,7 +6,7 @@ package ecdh_test
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/cipher"
 	"crypto/ecdh"
 	"crypto/rand"

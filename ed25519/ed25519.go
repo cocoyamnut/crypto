@@ -16,7 +16,7 @@
 package ed25519
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140/ed25519"
 	"crypto/internal/fips140cache"
 	"crypto/internal/fips140only"

@@ -5,7 +5,7 @@
 package ecdsa_test
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"

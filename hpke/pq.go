@@ -6,7 +6,7 @@ package hpke
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/ecdh"
 	"crypto/fips140"
 	"crypto/internal/fips140/drbg"

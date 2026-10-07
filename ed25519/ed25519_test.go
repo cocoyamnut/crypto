@@ -8,7 +8,7 @@ import (
 	"bufio"
 	"bytes"
 	"compress/gzip"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/cryptotest"
 	"crypto/rand"
 	"crypto/sha512"

@@ -7,7 +7,7 @@ package rsa_test
 import (
 	"bufio"
 	"compress/bzip2"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140"
 	"crypto/rand"
 	. "crypto/rsa"

@@ -8,7 +8,7 @@ package mldsa_test
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/fips140"
 	"crypto/internal/cryptotest"
 	. "crypto/mldsa"

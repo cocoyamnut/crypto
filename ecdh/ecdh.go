@@ -7,7 +7,7 @@
 package ecdh
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/boring"
 	"crypto/internal/fips140/ecdh"
 	"crypto/subtle"

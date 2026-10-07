@@ -7,7 +7,7 @@
 package mldsa
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140/mldsa"
 	"errors"
 	"io"

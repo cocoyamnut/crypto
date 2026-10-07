@@ -13,7 +13,7 @@
 // [FIPS 140-3 Go Cryptographic Module]: https://go.dev/doc/security/fips140
 package mldsa
 
-import "crypto"
+import "github.com/cocoyamnut/crypto"
 
 const (
 	PrivateKeySize = 32

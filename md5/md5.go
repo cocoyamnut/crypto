@@ -11,7 +11,7 @@
 package md5
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/fips140only"
 	"errors"
 	"hash"

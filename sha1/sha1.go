@@ -9,7 +9,7 @@
 package sha1
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/boring"
 	"crypto/internal/fips140only"
 	"errors"

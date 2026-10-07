@@ -8,7 +8,7 @@ import (
 	"bufio"
 	"bytes"
 	"compress/bzip2"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	. "crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/internal/cryptotest"

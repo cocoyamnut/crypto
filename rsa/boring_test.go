@@ -10,7 +10,7 @@
 package rsa
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/rand"
 	"encoding/asn1"
 	"encoding/hex"

@@ -6,7 +6,7 @@ package rsa_test
 
 import (
 	"bytes"
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/rand"
 	. "crypto/rsa"
 	"crypto/sha1"

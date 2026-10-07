@@ -42,7 +42,7 @@
 package rsa
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/boring"
 	"crypto/internal/boring/bbig"
 	"crypto/internal/fips140/bigmod"

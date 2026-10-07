@@ -5,7 +5,7 @@
 package rsa
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/internal/boring"
 	"crypto/internal/fips140/rsa"
 	"crypto/internal/fips140hash"

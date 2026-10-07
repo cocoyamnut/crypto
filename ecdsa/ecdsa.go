@@ -17,7 +17,7 @@
 package ecdsa
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"crypto/ecdh"
 	"crypto/elliptic"
 	"crypto/internal/boring"

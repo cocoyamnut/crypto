@@ -5,7 +5,7 @@
 package blake2b
 
 import (
-	"crypto"
+	"github.com/cocoyamnut/crypto"
 	"hash"
 )
 
