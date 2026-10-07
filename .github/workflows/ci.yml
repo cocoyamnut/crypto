@@ -25,5 +25,10 @@ jobs:
       - name: Run tests
         shell: bash
         run: |
-          packages=$(go list ./... | grep -vE '/(internal|third_party)(/|$)')
+          packages=$(find . -name '*.go' \
+            -not -path './internal/*' \
+            -not -path './third_party/*' \
+            -not -path '*/_asm/*' \
+            -not -path '*/testdata/*' \
+            -printf '%h\n' | sort -u)
           go test $packages
